@@ -146,6 +146,12 @@ section.more .wrap,section.work .wrap{padding-block:84px;display:grid;grid-templ
 
 /* 合作 */
 section.work{border-top:1px solid var(--line);background:var(--band)}
+.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.svc>div{background:var(--surface);padding:24px 22px;display:grid;gap:8px;align-content:start;grid-template-rows:auto 1fr auto}
+.svc h3{font-size:17px;font-weight:900}
+.svc p{font-size:14.5px;color:var(--muted)}
+.svc a{font-size:13px;color:var(--accent);text-decoration:none;margin-top:6px}
+.svc a:hover{text-decoration:underline}
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;list-style:none;margin:0;padding:0;counter-reset:s}
 .steps li{counter-increment:s;border-top:2px solid var(--accent);padding-top:16px;display:grid;gap:6px;align-content:start}
 .steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:26px;font-weight:700;color:var(--accent);line-height:1}
@@ -160,17 +166,18 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   .ledger em:not(.on){display:none}
   .w7,.w5{grid-column:1/-1} .tile{min-height:0;padding:26px 22px 0;border-radius:22px}
   .cols,.grid{grid-template-columns:minmax(0,1fr)} .grid .card,.grid .card:nth-child(4),.grid .card:nth-child(5){grid-column:auto} .split{grid-template-columns:minmax(0,1fr);gap:28px}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))} .frames{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))} .svc{grid-template-columns:repeat(2,minmax(0,1fr))} .frames{grid-template-columns:repeat(2,minmax(0,1fr))}
   section.case .wrap,section.more .wrap,section.work .wrap{padding-block:56px}
   .links a:not(.btn){display:none}
 }
+@media (max-width:520px){.svc{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tile{transition:none}.tile:hover{transform:none}}
 </style>
 
 <nav class="top"><div class="wrap">
   <a class="brand" href="#top">Cam Zhou<i>.</i></a>
   <div class="links">
-    <a href="#turtle">龟场管理系统</a><a href="#video">视频流程</a><a href="#toolkit">录播课总结工具</a><a href="#jizhang">简账</a><a href="#more">更多作品</a><a href="#work">怎么合作</a>
+    <a href="#turtle">龟场管理系统</a><a href="#video">视频流程</a><a href="#toolkit">录播课总结工具</a><a href="#jizhang">简账</a><a href="#more">更多作品</a><a href="#work">能做什么</a>
     <a class="btn sm" href="https://github.com/camzhou831-star">GitHub</a>
   </div>
 </div></nav>
@@ -180,7 +187,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   <div class="who"><div class="avail"><i></i>接受新项目 · 远程合作</div></div>
   <h1>你好，我是 Cam。<br>把想法做成<em>真正在用</em>的系统。</h1>
   <p class="lede">独立开发者，做管理系统、小程序、AI 工具和讲解视频。西澳大学（QS 世界第 77）信息技术硕士在读。</p>
-  <div class="cta"><a class="btn pri" href="#work-grid">看作品</a><a class="btn" href="#work">怎么合作</a></div>
+  <div class="cta"><a class="btn pri" href="#work-grid">看作品</a><a class="btn" href="#work">能做什么</a></div>
  </div>
  <div class="win ledger" aria-label="项目清单">
   <div class="bar"><i></i><i></i><i></i><span>~/projects</span></div>
@@ -356,7 +363,18 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 </div></section>
 
 <section class="work" id="work"><div class="wrap">
-  <div class="head"><div class="kind">WORK WITH ME</div><h2>怎么合作</h2><p>我接三类活：给小团队做管理系统和小程序，做接入 AI 的内部工具和自动化流程，做知识讲解类的动画视频。</p></div>
+  <div class="head"><div class="kind">SERVICES</div><h2>能做什么</h2><p>下面每一项都有做过的东西可以看。不在列表里的需求，也可以先聊。</p></div>
+  <div class="svc">
+    <div><h3>管理系统和后台</h3><p>档案、审批、报表、权限，按你的业务流程定制。</p><a href="#turtle">做过：龟场管理系统</a></div>
+    <div><h3>微信小程序</h3><p>和后台共用一套数据，员工在现场用手机就能录。</p><a href="#turtle">做过：51 页的龟场小程序</a></div>
+    <div><h3>企业官网和落地页</h3><p>产品介绍、公司官网、活动页，手机和电脑上都好看。</p><a href="#turtle">做过：龟场产品介绍页、本站</a></div>
+    <div><h3>数据看板和大屏</h3><p>把经营数据做成老板一眼看得懂的图，可以投屏。</p><a href="#turtle">做过：7 个经营看板、数据大屏</a></div>
+    <div><h3>后端接口和数据库</h3><p>接口设计、数据库建模、多租户隔离，对接微信和云存储，部署上线。</p><a href="#more">做过：87 个接口、多租户平台</a></div>
+    <div><h3>AI 工具和自动化</h3><p>把大模型接进你的流程：资料问答、录音转写和总结、重复工作自动化。</p><a href="#toolkit">做过：录播课总结工具、AI 工作台</a></div>
+    <div><h3>桌面软件和浏览器插件</h3><p>不联网也能用的 Windows 和 macOS 软件，Chrome 和 Edge 插件。</p><a href="#jizhang">做过：简账、网页剪藏插件</a></div>
+    <div><h3>讲解视频</h3><p>产品介绍、知识科普、课程配套动画，交付 4K 成片和封面。</p><a href="#video">做过：约 20 条成片</a></div>
+  </div>
+  <div class="head" style="margin-top:28px"><div class="kind">PROCESS</div><h2>怎么合作</h2></div>
   <ol class="steps">
     <li><b>先聊需求</b><span>你讲现在怎么做、哪里费事。我会问清楚数据在哪、谁在用。</span></li>
     <li><b>出原型和报价</b><span>先给能点的页面原型或分镜，确认范围后报固定价格和工期。</span></li>
