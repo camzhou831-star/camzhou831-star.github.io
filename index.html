@@ -157,6 +157,8 @@ section.work{border-top:1px solid var(--line);background:var(--band)}
 .steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:26px;font-weight:700;color:var(--accent);line-height:1}
 .steps b{font-size:17px} .steps span{font-size:14.5px;color:var(--muted)}
 .contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px 28px}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.addr{font-family:var(--mono);font-size:18px;font-weight:700;user-select:all;overflow-wrap:anywhere}
 .contact h3{font-size:22px;font-weight:900} .contact p{color:var(--muted);font-size:15px}
 footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px solid var(--line)}
 
@@ -382,8 +384,12 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
     <li><b>上线和交接</b><span>部署、写操作手册、交源码，约定一段维护期。</span></li>
   </ol>
   <div class="contact">
-    <div><h3>有想做的东西？</h3><p>在 GitHub 上找到我，说说你的情况。</p></div>
-    <a class="btn pri" href="https://github.com/camzhou831-star">github.com/camzhou831-star</a>
+    <div><h3>有想做的东西？</h3><p>发邮件说说你的情况，我一般一天内回复。</p></div>
+    <div class="mail">
+      <span class="addr" id="mail-addr">camzhou831@gmail.com</span>
+      <button class="btn pri sm" type="button" id="mail-copy">复制邮箱</button>
+      <a class="btn sm" href="https://github.com/camzhou831-star">GitHub</a>
+    </div>
   </div>
 </div></section>
 
@@ -399,6 +405,12 @@ document.querySelectorAll('[data-gallery]').forEach(function(g){
     });
   });
 });
+var mc=document.getElementById('mail-copy'), ma=document.getElementById('mail-addr');
+if(mc){mc.addEventListener('click',function(){
+  var done=function(){mc.textContent='已复制';setTimeout(function(){mc.textContent='复制邮箱'},1800)};
+  var sel=function(){var r=document.createRange();r.selectNodeContents(ma);var g=getSelection();g.removeAllRanges();g.addRange(r);mc.textContent='已选中，按复制键'};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ma.textContent).then(done,sel)}else{sel()}
+})}
 </script>
 
 </html>
