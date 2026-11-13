@@ -68,8 +68,8 @@ section.bento .wrap{padding-block:8px 88px;display:grid;grid-template-columns:re
 .tile:hover{transform:translateY(-4px)}
 .tile .win{margin-top:auto;border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -10px 40px -18px #0009}
 .w7{grid-column:span 7} .w5{grid-column:span 5}
-.tile.crop .win{width:165%;max-width:none;border-radius:12px 0 0 0}
-.tile.crop .win img{max-width:none}
+.strip{margin-top:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-height:300px;overflow:hidden}
+.strip img{display:block;width:100%;border-radius:12px 12px 0 0;border:1px solid #ffffff26;border-bottom:0}
 .tl{display:grid;gap:6px;justify-items:end;text-align:right}
 .tl span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:#ffffffb0}
 .tl b{font-size:clamp(26px,3vw,38px);font-weight:900;line-height:1.15}
@@ -159,7 +159,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 <nav class="top"><div class="wrap">
   <a class="brand" href="#top">Cam Zhou<i>.</i></a>
   <div class="links">
-    <a href="#turtle">龟场管理系统</a><a href="#toolkit">录播课总结工具</a><a href="#jizhang">简账</a><a href="#video">视频流程</a><a href="#more">更多作品</a><a href="#work">怎么合作</a>
+    <a href="#turtle">龟场管理系统</a><a href="#video">视频流程</a><a href="#toolkit">录播课总结工具</a><a href="#jizhang">简账</a><a href="#more">更多作品</a><a href="#work">怎么合作</a>
     <a class="btn sm" href="https://github.com/camzhou831-star">GitHub</a>
   </div>
 </div></nav>
@@ -186,9 +186,9 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   <div class="bar"><i></i><i></i><i></i><span>~/projects</span></div>
   <ul>
     <li><b>龟场管理系统</b><span>养殖场每天在用</span><em class="on">已上线</em></li>
+    <li><b>视频出片流程</b><span>从稿子到 4K 成片</span><em>3 个账号在用</em></li>
     <li><b>录播课总结工具</b><span>录播变成复习笔记</span><em>Mac · Win</em></li>
     <li><b>简账</b><span>小企业离线记账</span><em>开源</em></li>
-    <li><b>视频出片流程</b><span>从稿子到 4K 成片</span><em>3 个账号在用</em></li>
     <li><b>AI 工作台</b><span>接本地大模型</span><em>桌面应用</em></li>
     <li><b>网页剪藏插件</b><span>网页存成笔记</span><em>浏览器</em></li>
   </ul>
@@ -200,9 +200,9 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
     <div class="tl"><span>行业管理系统 · 已上线</span><b>龟场管理系统</b><p>把养殖场的十几张表格，换成一套自己的系统。</p></div>
     <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="img/tf-home.jpg" alt="龟场管理系统首页"></div>
   </a>
-  <a class="tile t-navy w5 crop" href="#turtle">
-    <div class="tl"><span>同一套系统 · 投屏用</span><b>数据大屏</b><p>缸位占用、实时预警、孵化进度，挂在场区实时看。</p></div>
-    <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="img/tf-screen.jpg" alt="龟场管理系统的数据大屏"></div>
+  <a class="tile t-navy w5" href="#video">
+    <div class="tl"><span>视频制作 · 3 个账号在用</span><b>视频出片流程</b><p>从一篇稿子到 4K 成片，每一步有标准、有检查。</p></div>
+    <div class="strip"><img src="img/vd-1.jpg" alt="成片画面一"><img src="img/vd-3.jpg" alt="成片画面二"><img src="img/vd-4.jpg" alt="成片画面三"></div>
   </a>
   <a class="tile t-amber w5" href="#toolkit">
     <div class="tl"><span>AI 工作流 · 命令行工具</span><b>录播课总结工具</b><p>两小时的录播，变成能点回原片的复习笔记。</p></div>
@@ -252,6 +252,31 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   <ul class="proof"><li class="live">已上线，真实养殖场在用</li><li>300+ 次提交</li><li>35 个数据模型</li><li>87 个后端接口</li><li>小程序 51 页</li><li>43 个测试 · CI</li></ul>
   <p class="stack">Next.js 15 · React 19 · Ant Design · Prisma · PostgreSQL · Taro · Docker · 阿里云 OSS · 微信订阅消息</p>
   <p class="note">源码不公开。截图来自去品牌的展示模式，数据是程序生成的演示数据。</p>
+</div></section>
+
+<section class="case" id="video"><div class="wrap">
+  <div class="head">
+    <div class="kind">视频制作 · 出片流程</div>
+    <h2>视频出片流程</h2>
+    <p>从一篇稿子到 4K 成片，每一步有标准、有检查。3 个短视频账号在用同一套流程。</p>
+  </div>
+  <div class="frames">
+    <figure><img src="img/vd-1.jpg" alt="成片画面：十万多个设置文件的数据画面"></figure>
+    <figure><img src="img/vd-2.jpg" alt="成片画面：设置文件里的命令"></figure>
+    <figure><img src="img/vd-3.jpg" alt="成片画面：一共找到两千五百多个密钥"></figure>
+    <figure><img src="img/vd-4.jpg" alt="成片画面：确认框里的三个选项"></figure>
+  </div>
+  <p class="shotcap">一期 2 分钟科普视频里的四个画面。画面用代码生成，字幕和配音逐字对齐。</p>
+  <ol class="pipe">
+    <li>选题</li><li>对标拆稿</li><li>写稿和验收</li><li>配音</li><li>做画面</li><li>自检</li><li>成片和封面</li><li>发布包</li><li>数据复盘</li>
+  </ol>
+  <div class="cols">
+    <div><h3>原来的问题</h3><p>一个人做视频，写稿、配音、画面、字幕、封面每一步都靠手感，质量忽高忽低，做完也不知道哪里出了问题。</p></div>
+    <div><h3>做了什么</h3><p>把出片拆成固定步骤，每步写清产出和验收标准。成片前自动检查响度、字幕位置和口播是否与稿子一致。发布后按 1 天、3 天、7 天复盘数据，结论写回下一期的标准。</p></div>
+    <div><h3>每期交付</h3><p>4K 成片（带字幕和不带字幕）、三种比例的封面、发布文案和一张交付单。配乐和音效自己合成，不涉及版权素材。</p></div>
+  </div>
+  <ul class="proof"><li>3 个账号在用</li><li>约 20 条成片</li><li>单期约 5 小时</li><li>横屏和竖屏 4K</li></ul>
+  <p class="stack">Remotion · React · whisper · ffmpeg · Claude Code skill</p>
 </div></section>
 
 <section class="case" id="toolkit"><div class="wrap">
@@ -317,31 +342,6 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   <ul class="proof"><li>14 个测试 · CI</li><li>预置 66 个会计科目</li><li>Windows 安装包</li><li>MIT 开源</li></ul>
   <p class="stack">Electron · Vue 3 · Element Plus · TypeScript · sql.js</p>
   <p><a class="btn sm" href="https://github.com/camzhou831-star/jizhang">在 GitHub 上看代码</a> <span class="note" style="margin-left:10px">截图里的"示范商贸有限公司"是虚构的演示账套。</span></p>
-</div></section>
-
-<section class="case" id="video"><div class="wrap">
-  <div class="head">
-    <div class="kind">视频制作 · 出片流程</div>
-    <h2>视频出片流程</h2>
-    <p>从一篇稿子到 4K 成片，每一步有标准、有检查。3 个短视频账号在用同一套流程。</p>
-  </div>
-  <div class="frames">
-    <figure><img src="img/vd-1.jpg" alt="成片画面：十万多个设置文件的数据画面"></figure>
-    <figure><img src="img/vd-2.jpg" alt="成片画面：设置文件里的命令"></figure>
-    <figure><img src="img/vd-3.jpg" alt="成片画面：一共找到两千五百多个密钥"></figure>
-    <figure><img src="img/vd-4.jpg" alt="成片画面：确认框里的三个选项"></figure>
-  </div>
-  <p class="shotcap">一期 2 分钟科普视频里的四个画面。画面用代码生成，字幕和配音逐字对齐。</p>
-  <ol class="pipe">
-    <li>选题</li><li>对标拆稿</li><li>写稿和验收</li><li>配音</li><li>做画面</li><li>自检</li><li>成片和封面</li><li>发布包</li><li>数据复盘</li>
-  </ol>
-  <div class="cols">
-    <div><h3>原来的问题</h3><p>一个人做视频，写稿、配音、画面、字幕、封面每一步都靠手感，质量忽高忽低，做完也不知道哪里出了问题。</p></div>
-    <div><h3>做了什么</h3><p>把出片拆成固定步骤，每步写清产出和验收标准。成片前自动检查响度、字幕位置和口播是否与稿子一致。发布后按 1 天、3 天、7 天复盘数据，结论写回下一期的标准。</p></div>
-    <div><h3>每期交付</h3><p>4K 成片（带字幕和不带字幕）、三种比例的封面、发布文案和一张交付单。配乐和音效自己合成，不涉及版权素材。</p></div>
-  </div>
-  <ul class="proof"><li>3 个账号在用</li><li>约 20 条成片</li><li>单期约 5 小时</li><li>横屏和竖屏 4K</li></ul>
-  <p class="stack">Remotion · React · whisper · ffmpeg · Claude Code skill</p>
 </div></section>
 
 <section class="more" id="more"><div class="wrap">
