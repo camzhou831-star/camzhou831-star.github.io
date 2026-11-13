@@ -61,7 +61,7 @@ header.hero .wrap{padding-block:80px 52px;display:grid;grid-template-columns:min
 .me{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);background:var(--surface)}
 .avail{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:#cfd6e4;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px 6px 12px}
 .avail i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
-h1{font-size:clamp(26px,6.6vw,64px);font-weight:900;line-height:1.16;margin-top:24px}
+h1{font-size:clamp(26px,4.2vw,52px);font-weight:900;line-height:1.16;margin-top:24px}
 h1 em{font-style:normal;color:var(--accent)}
 .lede{color:#cfd6e4;font-size:19px;margin-top:26px;max-width:32em}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
@@ -156,6 +156,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 
 @media (max-width:900px){
   header.hero .wrap{padding-block:56px 40px;grid-template-columns:minmax(0,1fr);gap:36px}
+  h1{font-size:clamp(24px,6.6vw,52px)}
   .ledger em:not(.on){display:none}
   .w7,.w5{grid-column:1/-1} .tile{min-height:0;padding:26px 22px 0;border-radius:22px}
   .cols,.grid{grid-template-columns:minmax(0,1fr)} .grid .card,.grid .card:nth-child(4),.grid .card:nth-child(5){grid-column:auto} .split{grid-template-columns:minmax(0,1fr);gap:28px}
