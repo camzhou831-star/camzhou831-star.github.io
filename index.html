@@ -53,10 +53,6 @@ header.hero .wrap{padding-block:80px 52px;display:grid;grid-template-columns:min
 h1{font-size:clamp(26px,6.6vw,64px);font-weight:900;line-height:1.16;margin-top:24px}
 h1 em{font-style:normal;color:var(--accent)}
 .lede{color:#cfd6e4;font-size:19px;margin-top:26px;max-width:32em}
-.creds{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px;max-width:34em}
-.creds li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:baseline;padding-left:16px;border-left:2px solid var(--accent)}
-.creds b{font-size:16px;white-space:nowrap}
-.creds span{font-size:14.5px;color:var(--muted)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .stats{display:flex;flex-wrap:wrap;gap:14px 36px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
 .stats div{min-width:0}
@@ -147,7 +143,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 
 @media (max-width:900px){
   header.hero .wrap{padding-block:56px 40px;grid-template-columns:minmax(0,1fr);gap:36px}
-  .creds li{grid-template-columns:minmax(0,1fr)} .creds b{white-space:normal}
+  .ledger em:not(.on){display:none}
   .w7,.w5{grid-column:1/-1} .tile{min-height:0;padding:26px 22px 0;border-radius:22px}
   .cols,.grid{grid-template-columns:minmax(0,1fr)} .split{grid-template-columns:minmax(0,1fr);gap:28px}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))} .frames{grid-template-columns:repeat(2,minmax(0,1fr))}
