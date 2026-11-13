@@ -14,301 +14,313 @@
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Cam Zhou 作品集</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-/* 版式：深夜蓝单一主题，截图是主角。每个主案例先给一张带窗口边框的大图，文字压成三栏短段。没有截图的作品收进卡片格。 */
+/* 版式：近黑底 + 琥珀一个强调色。英文大字标题撑场面，中文小标签说明；作品按 01–04 编号，截图是主角；卡片用半透明描边。 */
 :root{
   color-scheme:dark;
-  --bg:#090e1c; --band:#0d1426; --surface:#121b31; --raise:#182340; --line:#22304f;
-  --ink:#eef2f9; --muted:#97a3bc; --dim:#6b7895;
-  --accent:#f5b942; --accent-ink:#1b1303; --ok:#5fd39a;
+  --bg:#06080f; --surface:#ffffff0a; --raise:#ffffff12; --line:#ffffff1f; --solid:#0e1220;
+  --ink:#f4f1e8; --muted:#a3a9b8; --dim:#6f7687;
+  --accent:#f5b942; --accent-ink:#1b1303; --ok:#5fd39a; --blue:#3557ff; --teal:#12b3a6;
   --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --disp:"Anton","Impact","Haettenschweiler","Arial Narrow Bold",sans-serif;
   --mono:"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
-  --r:14px;
+  --r:22px;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-a{color:inherit} a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-h1,h2,h3,p{margin:0} h1,h2,h3{text-wrap:balance;letter-spacing:-.01em}
-.mono{font-family:var(--mono)}
+a{color:inherit} a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+h1,h2,h3,p{margin:0} h2,h3{text-wrap:balance;letter-spacing:-.01em}
+section[id],header[id]{scroll-margin-top:84px}
 
-/* 顶栏 */
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
-.brand{font-weight:900;font-size:17px;text-decoration:none;white-space:nowrap}
-.brand i{font-style:normal;color:var(--accent)}
-.links{display:flex;gap:4px 18px;flex-wrap:wrap;margin-left:auto;font-size:14px}
-.links a{color:var(--muted);text-decoration:none} .links a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;text-decoration:none;border-radius:999px;padding:10px 20px;border:1px solid var(--line);background:var(--surface);color:var(--ink);white-space:nowrap}
-.btn:hover{border-color:var(--muted)}
+/* 悬浮顶栏 */
+nav.top{position:fixed;z-index:9;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 14px);pointer-events:none}
+nav.top .wrap{pointer-events:auto}
+.pill{display:flex;align-items:center;gap:18px;padding:8px 8px 8px 8px;border-radius:999px;border:1px solid var(--line);background:#0a0d18cc;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.brand{font-weight:900;font-size:15px;text-decoration:none;white-space:nowrap;background:var(--accent);color:var(--accent-ink);padding:7px 16px;border-radius:999px}
+.links{display:flex;gap:4px 22px;flex-wrap:wrap;margin:0 auto;font-size:14px}
+.links a{color:var(--muted);text-decoration:none;white-space:nowrap} .links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;text-decoration:none;border-radius:999px;padding:11px 22px;border:1px solid var(--line);background:var(--raise);color:var(--ink);white-space:nowrap;cursor:pointer;font-family:inherit}
+.btn:hover{border-color:#ffffff66}
 .btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.btn.sm{padding:6px 14px;font-size:13px}
+.btn.pri:hover{filter:brightness(1.08)}
+.btn.sm{padding:7px 16px;font-size:13px}
 
 /* 首屏 */
-header.hero{background:radial-gradient(900px 480px at 78% 10%,#1a2a55 0%,transparent 70%),var(--bg);overflow:hidden}
-header.hero .wrap{padding-block:80px 52px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px;align-items:center}
-.herotxt{min-width:0}
-.ledger ul{list-style:none;margin:0;padding:8px 0}
-.ledger li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:baseline;padding:11px 18px;font-size:14.5px;border-bottom:1px solid var(--line)}
-.ledger li:last-child{border-bottom:0}
-.ledger b{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ledger span{font-size:13px;color:var(--muted);white-space:nowrap}
-.ledger em{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:1px 9px;white-space:nowrap}
-.ledger em.on{color:var(--ok);border-color:var(--ok)}
-.who{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.me{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);background:var(--surface)}
-.avail{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:#cfd6e4;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px 6px 12px}
-.avail i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
-h1{font-size:clamp(26px,4.2vw,52px);font-weight:900;line-height:1.16;margin-top:24px}
-h1 em{font-style:normal;color:var(--accent)}
-.lede{color:#cfd6e4;font-size:19px;margin-top:26px;max-width:32em}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.stats{display:flex;flex-wrap:wrap;gap:14px 36px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
-.stats div{min-width:0}
-.stats b{display:block;font-family:var(--mono);font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
-.stats span{font-size:13px;color:var(--muted)}
+header.hero{position:relative;min-height:min(100svh,1000px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
+  background:
+   radial-gradient(700px 520px at 82% 18%,#f5b94233 0%,transparent 70%),
+   radial-gradient(900px 600px at 8% 88%,#3557ff40 0%,transparent 70%),
+   radial-gradient(600px 400px at 60% 70%,#12b3a626 0%,transparent 70%),
+   var(--bg)}
+header.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff09 1px,transparent 1px),linear-gradient(90deg,#ffffff09 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%)}
+header.hero .wrap{position:relative;width:100%;box-sizing:border-box;padding-top:calc(env(safe-area-inset-top,0px) + 106px);padding-bottom:30px}
+.avail{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:#d9dce6;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px 6px 12px}
+.avail i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px #5fd39a38}
+h1.mega{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.005em;margin-top:26px;font-size:clamp(68px,min(16.5vw,24vh),216px)}
+h1.mega span{display:block}
+h1.mega .a{color:var(--accent);position:relative;width:max-content;max-width:100%}
+h1.mega .a::after{content:"✦";position:absolute;left:100%;top:-.08em;margin-left:.12em;font-size:.34em;color:var(--accent);font-family:var(--sans)}
+h1.mega .b{color:var(--ink);font-size:.62em;letter-spacing:.02em}
+.tagline{font-size:clamp(20px,2.5vw,30px);font-weight:900;line-height:1.35;margin-top:26px}
+.tagline em{font-style:normal;color:var(--accent)}
+.lede{color:#c9cedb;font-size:17px;margin-top:12px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 
-/* 拼贴格：每块一个底色，截图从底边探出来 */
-section.bento .wrap{padding-block:8px 88px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
-.tile{position:relative;display:flex;flex-direction:column;gap:26px;border-radius:28px;padding:34px 34px 0;overflow:hidden;text-decoration:none;color:var(--ink);min-height:440px;transition:transform .25s ease}
-.tile:hover{transform:translateY(-4px)}
-.tile .win{margin-top:auto;border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -10px 40px -18px #0009}
-.w7{grid-column:span 7} .w5{grid-column:span 5}
-.strip{margin-top:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:138%;max-height:340px;overflow:hidden}
-.strip img{display:block;width:100%;border-radius:12px 12px 0 0;border:1px solid #ffffff26;border-bottom:0}
-.tl{display:grid;gap:6px;justify-items:end;text-align:right}
-.tl span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:#ffffffb0}
-.tl b{font-size:clamp(26px,3vw,38px);font-weight:900;line-height:1.15}
-.tl p{font-size:15px;color:#ffffffc8;max-width:22em}
-.t-teal{background:linear-gradient(160deg,#0f5a57,#0a3836)} .t-navy{background:linear-gradient(160deg,#1c3a78,#101f47)}
-.t-amber{background:linear-gradient(160deg,#7a5310,#3d2906)} .t-indigo{background:linear-gradient(160deg,#4a3a9a,#251d57)}
-.tile pre.sample{font-size:12px;background:var(--surface)}
+/* 首屏底部的作品轮播 */
+.reel{position:relative;padding:18px 0 44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.reel .track{display:flex;gap:22px;width:max-content;animation:reel 60s linear infinite}
+.reel:hover .track{animation-play-state:paused}
+.reel img{display:block;height:190px;width:auto;border-radius:16px;border:1px solid #ffffff2e;box-shadow:0 18px 40px -18px #000c;background:var(--solid)}
+.reel img:nth-child(odd){transform:rotate(-2.2deg) translateY(6px)} .reel img:nth-child(even){transform:rotate(1.8deg)}
+@keyframes reel{to{transform:translateX(calc(-50% - 11px))}}
 
-/* 窗口边框 */
-.win{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
-.win .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--raise);border-bottom:1px solid var(--line)}
-.win .bar i{width:10px;height:10px;border-radius:50%;background:#2e3d63}
-.win .bar i:first-child{background:#e2675f}.win .bar i:nth-child(2){background:#e0b245}.win .bar i:nth-child(3){background:#58b97a}
-.win .bar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.win img{display:block;width:100%;height:auto}
+/* 分区大标题 */
+section.sec{position:relative;border-top:1px solid var(--line)}
+section.sec>.wrap{padding-block:104px;display:grid;grid-template-columns:minmax(0,1fr);gap:44px}
+.g-amber{background:radial-gradient(760px 420px at 92% 0%,#f5b9421f,transparent 70%)}
+.g-blue{background:radial-gradient(820px 460px at 0% 0%,#3557ff2e,transparent 70%)}
+.g-teal{background:radial-gradient(760px 420px at 100% 10%,#12b3a626,transparent 70%)}
+.big{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:.95;font-size:clamp(46px,8.6vw,118px);color:var(--ink);letter-spacing:.005em}
+.big i{font-style:normal;color:var(--accent)}
+.tag{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--accent);border:1px solid #f5b94266;background:#f5b94214;border-radius:999px;padding:3px 14px}
+.sechead p{color:var(--muted);font-size:17px;margin-top:14px;max-width:40em}
 
-/* 主案例 */
-section.case{border-top:1px solid var(--line)}
-section.case:nth-of-type(odd){background:var(--band)}
-section.case .wrap{padding-block:84px;display:grid;grid-template-columns:minmax(0,1fr);gap:36px}
-[data-gallery]{min-width:0}
-section[id],header[id]{scroll-margin-top:64px}
-.head{display:grid;gap:10px;max-width:46em}
+/* 卡片 */
+.glass{border:1px solid var(--line);background:linear-gradient(160deg,#ffffff10,#ffffff05);border-radius:var(--r)}
+.about{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:18px}
+.idcard{min-height:280px;display:grid;place-items:center;position:relative;overflow:hidden;background:repeating-linear-gradient(90deg,#ffffff07 0 1px,transparent 1px 34px),linear-gradient(160deg,#16203f,#0a0e1c)}
+.idcard .ring{width:190px;height:190px;border-radius:50%;border:1px solid #ffffff33;display:grid;place-items:center;text-align:center}
+.idcard b{font-family:var(--disp);font-weight:400;font-size:54px;line-height:1;color:var(--accent);display:block}
+.idcard span{font-size:13px;color:var(--muted);letter-spacing:.12em}
+.bio{padding:38px 40px;display:grid;gap:16px;align-content:center}
+.bio h3{font-size:clamp(22px,2.6vw,32px);font-weight:900;line-height:1.3}
+.bio p{color:#c9cedb;font-size:16px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.nums div{padding:22px 24px}
+.nums b{display:block;font-family:var(--disp);font-weight:400;font-size:46px;line-height:1.05;color:var(--ink);font-variant-numeric:tabular-nums}
+.nums span{font-size:13.5px;color:var(--muted)}
+
+/* 作品 */
+.case{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding-top:56px;border-top:1px solid var(--line)}
+.case:first-of-type{padding-top:0;border-top:0}
+.chead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 28px;align-items:start}
+.no{font-family:var(--disp);font-size:clamp(64px,9vw,128px);line-height:.86;color:var(--accent)}
 .kind{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--accent)}
-.head h2{font-size:clamp(28px,3.6vw,42px);font-weight:900;line-height:1.2}
-.head p{color:var(--muted);font-size:18px}
+.chead h2{font-size:clamp(28px,3.8vw,46px);font-weight:900;line-height:1.2;margin-top:4px}
+.chead p{color:var(--muted);font-size:18px;margin-top:8px;max-width:36em}
+[data-gallery]{min-width:0}
 .tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
 .tabs button{all:unset;cursor:pointer;flex:none;font-size:14px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--surface)}
 .tabs button:hover{color:var(--ink)}
 .tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.win{border:1px solid #ffffff2b;border-radius:18px;overflow:hidden;background:var(--solid);box-shadow:0 40px 90px -50px #000}
+.win .bar{display:flex;align-items:center;gap:7px;padding:11px 15px;background:#ffffff0d;border-bottom:1px solid var(--line)}
+.win .bar i{width:10px;height:10px;border-radius:50%}
+.win .bar i:first-child{background:#e2675f}.win .bar i:nth-child(2){background:#e0b245}.win .bar i:nth-child(3){background:#58b97a}
+.win .bar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win img{display:block;width:100%;height:auto}
 .shotcap{font-size:14px;color:var(--muted);margin-top:12px}
-[data-gallery] .win{max-width:980px}
-.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-.cols h3{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin-bottom:8px}
-.cols p{color:#cfd6e4;font-size:15.5px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.cols>div{padding:24px 26px}
+.cols h3,.split .txt h3{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin-bottom:8px}
+.cols p,.split .txt p{color:#c9cedb;font-size:15.5px}
 .proof{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.proof li{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:3px 12px;background:var(--surface);color:#cfd6e4;font-variant-numeric:tabular-nums}
+.proof li{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 13px;background:var(--surface);color:#d9dce6;font-variant-numeric:tabular-nums}
 .proof li.live{border-color:var(--ok);color:var(--ok)}
 .stack{font-family:var(--mono);font-size:12.5px;color:var(--dim);line-height:1.9}
 .note{font-size:13px;color:var(--dim)}
-.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:44px;align-items:start}
+.acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:36px;align-items:start}
 .split .txt{display:grid;gap:22px;min-width:0}
-.split .txt h3{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin-bottom:6px}
-.split .txt p{color:#cfd6e4;font-size:15.5px}
-pre.sample{margin:0;padding:20px 22px;font-family:var(--mono);font-size:12.5px;line-height:1.8;overflow-x:auto;white-space:pre;color:#cfd6e4}
+pre.sample{margin:0;padding:20px 22px;font-family:var(--mono);font-size:12.5px;line-height:1.8;overflow-x:auto;white-space:pre;color:#c9cedb}
 pre.sample b{color:var(--accent);font-weight:700} pre.sample u{text-decoration:none;color:var(--ok)}
-
-.frames{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:980px}
-.frames figure{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
+.frames{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.frames figure{margin:0;border:1px solid #ffffff2b;border-radius:20px;overflow:hidden;background:var(--solid)}
 .frames img,.frames video{display:block;width:100%;height:auto}
 .pipe{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 0;counter-reset:p}
 .pipe li{counter-increment:p;display:flex;align-items:center;font-size:14.5px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 10px;margin-right:26px;position:relative}
 .pipe li::before{content:counter(p);font-family:var(--mono);font-size:12px;color:var(--accent-ink);background:var(--accent);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;margin-right:8px}
 .pipe li:not(:last-child)::after{content:"→";position:absolute;right:-20px;color:var(--dim);font-weight:400}
 
-/* 更多作品 */
-section.more{border-top:1px solid var(--line)}
-section.more .wrap,section.work .wrap{padding-block:84px;display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
+/* 更多作品、能做什么 */
 .grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
 .grid .card{grid-column:span 2}
 .grid .card:nth-child(4),.grid .card:nth-child(5){grid-column:span 3}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:12px;align-content:start}
-.card h3{font-size:19px;font-weight:900}
-.card p{font-size:14.5px;color:var(--muted)}
+.card{padding:28px;display:grid;gap:12px;align-content:start}
+.card h3{font-size:21px;font-weight:900}
+.card p{font-size:15px;color:var(--muted)}
 .card .kind{font-size:11.5px}
-
-/* 合作 */
-section.work{border-top:1px solid var(--line);background:var(--band)}
-.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.svc>div{background:var(--surface);padding:24px 22px;display:grid;gap:8px;align-content:start;grid-template-rows:auto 1fr auto}
-.svc h3{font-size:17px;font-weight:900}
-.svc p{font-size:14.5px;color:var(--muted)}
-.svc a{font-size:13px;color:var(--accent);text-decoration:none;margin-top:6px}
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:v}
+.svc>div{counter-increment:v;padding:26px 26px 24px;display:grid;gap:10px;align-content:start;grid-template-rows:auto auto 1fr auto;min-height:214px;transition:transform .25s ease,border-color .25s ease}
+.svc>div:hover{transform:translateY(-4px);border-color:#f5b94280}
+.svc>div::before{content:"0" counter(v);font-family:var(--mono);font-size:12px;font-weight:700;color:var(--accent);border:1px solid #f5b94266;border-radius:999px;padding:1px 10px;justify-self:start}
+.svc h3{font-size:21px;font-weight:900}
+.svc h3::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-left:8px;vertical-align:.12em}
+.svc p{font-size:15px;color:var(--muted)}
+.svc a{font-size:13px;color:var(--accent);text-decoration:none}
 .svc a:hover{text-decoration:underline}
+.svc>div.hot{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.svc>div.hot::before{color:var(--accent-ink);border-color:#1b130366}
+.svc>div.hot h3::after{background:var(--accent-ink)}
+.svc>div.hot p{color:#3d2c07} .svc>div.hot a{color:var(--accent-ink);font-weight:700}
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;list-style:none;margin:0;padding:0;counter-reset:s}
-.steps li{counter-increment:s;border-top:2px solid var(--accent);padding-top:16px;display:grid;gap:6px;align-content:start}
-.steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:26px;font-weight:700;color:var(--accent);line-height:1}
-.steps b{font-size:17px} .steps span{font-size:14.5px;color:var(--muted)}
-.contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px 28px}
-.cinfo{display:grid;gap:18px;min-width:0}
-.qr{margin:0;display:grid;gap:8px;justify-items:center}
-.qr img{width:132px;height:132px;border-radius:10px;background:#fff;padding:6px;box-sizing:content-box}
+.steps li{counter-increment:s;padding:24px 24px 26px;display:grid;gap:8px;align-content:start}
+.steps li::before{content:"0" counter(s);font-family:var(--disp);font-size:44px;color:var(--accent);line-height:1}
+.steps b{font-size:18px} .steps span{font-size:14.5px;color:var(--muted)}
+
+/* 结尾联系 */
+section.end{border-top:1px solid var(--line);background:radial-gradient(900px 480px at 20% 100%,#f5b94226,transparent 70%),radial-gradient(700px 420px at 95% 20%,#3557ff2e,transparent 70%)}
+section.end .wrap{padding-block:120px 96px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:end}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;color:var(--muted)}
+.end h2{font-size:clamp(30px,5.2vw,64px);font-weight:900;line-height:1.2;margin-top:18px}
+.end h2 em{font-style:normal;color:var(--accent)}
+.end p.sub{color:var(--muted);font-size:16px;margin-top:14px}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:30px}
+.addr{font-family:var(--mono);font-size:17px;font-weight:700;user-select:all;overflow-wrap:anywhere;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:9px 20px}
+.qr{margin:0;display:grid;gap:10px;justify-items:center;padding:18px 18px 14px}
+.qr img{width:150px;height:150px;border-radius:12px;background:#fff;padding:6px;box-sizing:content-box}
 .qr figcaption{font-size:13px;color:var(--muted)}
-.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
-.addr{font-family:var(--mono);font-size:18px;font-weight:700;user-select:all;overflow-wrap:anywhere}
-.contact h3{font-size:22px;font-weight:900} .contact p{color:var(--muted);font-size:15px}
-footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px solid var(--line)}
+footer .wrap{padding-block:26px;font-size:13px;color:var(--dim);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
+
+/* 滚动出现 */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
 
 @media (max-width:900px){
-  header.hero .wrap{padding-block:56px 40px;grid-template-columns:minmax(0,1fr);gap:36px}
-  h1{font-size:clamp(24px,6.6vw,52px)}
-  .ledger em:not(.on){display:none}
-  .w7,.w5{grid-column:1/-1} .tile{min-height:0;padding:26px 22px 0;border-radius:22px}
-  .cols,.grid{grid-template-columns:minmax(0,1fr)} .grid .card,.grid .card:nth-child(4),.grid .card:nth-child(5){grid-column:auto} .split{grid-template-columns:minmax(0,1fr);gap:28px}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))} .svc{grid-template-columns:repeat(2,minmax(0,1fr))} .frames{grid-template-columns:repeat(2,minmax(0,1fr))}
-  section.case .wrap,section.more .wrap,section.work .wrap{padding-block:56px}
-  .links a:not(.btn){display:none}
+  .links{display:none} .pill{justify-content:space-between}
+  header.hero .wrap{padding-top:calc(env(safe-area-inset-top,0px) + 108px)}
+  .reel img{height:140px}
+  section.sec>.wrap{padding-block:68px;gap:32px}
+  .about,.cols,.split,.grid{grid-template-columns:minmax(0,1fr)}
+  .grid .card,.grid .card:nth-child(4),.grid .card:nth-child(5){grid-column:auto}
+  .bio{padding:28px 24px}
+  .nums,.steps,.svc,.frames{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chead{grid-template-columns:minmax(0,1fr)}
+  .svc>div{min-height:0}
+  section.end .wrap{grid-template-columns:minmax(0,1fr);padding-block:76px 64px;align-items:start}
+  .qr{justify-self:start}
 }
-@media (max-width:520px){.svc{grid-template-columns:minmax(0,1fr)}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tile{transition:none}.tile:hover{transform:none}}
+@media (max-width:520px){.svc{grid-template-columns:minmax(0,1fr)} .nums b{font-size:38px}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto} .reel .track{animation:none} .svc>div{transition:none} .svc>div:hover{transform:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+}
 </style>
 
-<nav class="top"><div class="wrap">
-  <a class="brand" href="#top">Cam Zhou<i>.</i></a>
+<nav class="top"><div class="wrap"><div class="pill">
+  <a class="brand" href="#top">Cam Zhou</a>
   <div class="links">
-    <a href="#turtle">龟场管理系统</a><a href="#video">视频流程</a><a href="#toolkit">录播课总结工具</a><a href="#jizhang">简账</a><a href="#more">更多作品</a><a href="#work">能做什么</a>
-    <a class="btn sm" href="https://github.com/camzhou831-star">GitHub</a>
+    <a href="#profile">简介</a><a href="#works">精选作品</a><a href="#more">更多作品</a><a href="#work">能做什么</a><a href="#process">怎么合作</a>
   </div>
-</div></nav>
+  <a class="btn pri sm" href="#contact">联系我</a>
+</div></div></nav>
 
-<header class="hero" id="top"><div class="wrap">
- <div class="herotxt">
-  <div class="who"><div class="avail"><i></i>接受新项目 · 远程合作</div></div>
-  <h1>你好，我是 Cam。<br>把想法做成<em>真正在用</em>的系统。</h1>
-  <p class="lede">独立开发者，做管理系统、小程序、AI 工具和讲解视频。西澳大学（QS 世界第 77）信息技术硕士在读。</p>
-  <div class="cta"><a class="btn pri" href="#work-grid">看作品</a><a class="btn" href="#work">能做什么</a></div>
- </div>
- <div class="win ledger" aria-label="项目清单">
-  <div class="bar"><i></i><i></i><i></i><span>~/projects</span></div>
-  <ul>
-    <li><b>龟场管理系统</b><span>养殖场每天在用</span><em class="on">已上线</em></li>
-    <li><b>视频出片流程</b><span>从稿子到 4K 成片</span><em>3 个账号在用</em></li>
-    <li><b>录播课总结工具</b><span>录播变成复习笔记</span><em>Mac · Win</em></li>
-    <li><b>简账</b><span>小企业离线记账</span><em>开源</em></li>
-    <li><b>AI 工作台</b><span>接本地大模型</span><em>桌面应用</em></li>
-    <li><b>网页剪藏插件</b><span>网页存成笔记</span><em>浏览器</em></li>
-  </ul>
- </div>
-</div></header>
-
-<section class="bento" id="work-grid"><div class="wrap">
-  <a class="tile t-teal w7" href="#turtle">
-    <div class="tl"><span>行业管理系统 · 已上线</span><b>龟场管理系统</b><p>把养殖场的十几张表格，换成一套自己的系统。</p></div>
-    <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="img/tf-home.jpg" alt="龟场管理系统首页"></div>
-  </a>
-  <a class="tile t-navy w5" href="#video">
-    <div class="tl"><span>视频制作 · 3 个账号在用</span><b>视频出片流程</b><p>从一篇稿子到 4K 成片，每一步有标准、有检查。</p></div>
-    <div class="strip"><img src="img/vd-1.jpg" alt="成片画面一"><img loading="lazy" decoding="async" src="img/vd-3.jpg" alt="成片画面二"><img loading="lazy" decoding="async" src="img/vd-4.jpg" alt="成片画面三"></div>
-  </a>
-  <a class="tile t-amber w5" href="#toolkit">
-    <div class="tl"><span>AI 工作流 · 命令行工具</span><b>录播课总结工具</b><p>两小时的录播，变成能点回原片的复习笔记。</p></div>
-    <div class="win"><div class="bar"><i></i><i></i><i></i></div><pre class="sample"><b>## 章节时间线</b>
-- <u>[00:22]</u> 循环为什么难测（p2）
-- <u>[01:00]</u> 素路径（p4）
-- <u>[01:18]</u> 例子：while 循环（p5）
-- <u>[01:33]</u> 总结与 quiz 提示（p6）
-
-<b>## 考点信号</b>
-- 下周 quiz 考这套课件（01:35）
-
-<b>## 复习卡</b>
-- 简单路径的定义？:: 不重复访问任何节点
-- 素路径覆盖蕴含？:: 节点覆盖与边覆盖</pre></div>
-  </a>
-  <a class="tile t-indigo w7" href="#jizhang">
-    <div class="tl"><span>桌面应用 · 开源</span><b>简账</b><p>给小企业用的离线记账软件，装上就能用。</p></div>
-    <div class="win"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" src="img/jz-dashboard.jpg" alt="简账工作台"></div>
-  </a>
-</div></section>
-
-<section class="case" id="turtle"><div class="wrap">
-  <div class="head">
-    <div class="kind">行业管理系统 · Web + 微信小程序</div>
-    <h2>龟场管理系统</h2>
-    <p>把养殖场的十几张表格，换成一套自己的系统。真实养殖场正在用。</p>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="avail"><i></i>接受新项目 · 远程合作</div>
+    <h1 class="mega"><span class="a">Cam Zhou</span><span class="b">Portfolio</span></h1>
+    <p class="tagline">把想法做成<em>真正在用</em>的系统。</p>
+    <p class="lede">独立开发者，做管理系统、小程序、AI 工具和讲解视频。西澳大学（QS 世界第 77）信息技术硕士在读。</p>
+    <div class="cta"><a class="btn pri" href="#works">看作品</a><a class="btn" href="#work">能做什么</a></div>
   </div>
-  <div data-gallery>
-    <div class="tabs" role="group" aria-label="龟场管理系统截图">
-      <button aria-pressed="true" data-src="img/tf-home.jpg" data-c="首页：在库价值、只数、近 12 个月购销趋势">首页</button>
-      <button aria-pressed="false" data-src="img/tf-screen.jpg" data-c="数据大屏：各养殖区域的缸位占用、实时预警、孵化进度">数据大屏</button>
-      <button aria-pressed="false" data-src="img/tf-dashboard-finance.jpg" data-c="财务看板：当月售出、购入、支出和净利润">财务看板</button>
-      <button aria-pressed="false" data-src="img/tf-dashboard-farm.jpg" data-c="龟场概况：月度购销对比、资产状态、品种分布">龟场概况</button>
-      <button aria-pressed="false" data-src="img/tf-approvals.jpg" data-c="审批中心：折损单和费用支出走审批">审批中心</button>
-      <button aria-pressed="false" data-src="img/tf-trace.jpg" data-c="一龟一码溯源页：客户扫码看到的影像档案和时间线">扫码溯源</button>
-      <button aria-pressed="false" data-src="img/tf-intro.jpg" data-c="产品介绍页">产品介绍页</button>
+  <div class="reel" aria-hidden="true"><div class="track">
+    <img src="img/tf-home.jpg" alt=""><img src="img/vd-1.jpg" alt=""><img src="img/jz-dashboard.jpg" alt=""><img src="img/tf-screen.jpg" alt=""><img src="img/vd-3.jpg" alt=""><img src="img/tf-dashboard-finance.jpg" alt=""><img src="img/jz-voucher.jpg" alt=""><img src="img/vd-4.jpg" alt=""><img src="img/tf-trace.jpg" alt=""><img src="img/tf-dashboard-farm.jpg" alt=""><img src="img/vd-2.jpg" alt=""><img src="img/jz-balance-sheet.jpg" alt=""><img src="img/tf-home.jpg" alt=""><img src="img/vd-1.jpg" alt=""><img src="img/jz-dashboard.jpg" alt=""><img src="img/tf-screen.jpg" alt=""><img src="img/vd-3.jpg" alt=""><img src="img/tf-dashboard-finance.jpg" alt=""><img src="img/jz-voucher.jpg" alt=""><img src="img/vd-4.jpg" alt=""><img src="img/tf-trace.jpg" alt=""><img src="img/tf-dashboard-farm.jpg" alt=""><img src="img/vd-2.jpg" alt=""><img src="img/jz-balance-sheet.jpg" alt="">
+  </div></div>
+</header>
+
+<section class="sec g-blue" id="profile"><div class="wrap">
+  <div class="sechead rv"><div class="big">Profile</div><span class="tag">个人简介</span></div>
+  <div class="about rv">
+    <div class="glass idcard"><div class="ring"><div><b>CZ</b><span>CAM ZHOU</span></div></div></div>
+    <div class="glass bio">
+      <h3>独立开发者，从需求聊清楚到上线交付都能接。</h3>
+      <p>接手过真实在用的业务系统，负责后续开发、小程序、部署和运维；也自己从零做过桌面软件、命令行工具和讲解视频。西澳大学（QS 世界第 77）信息技术硕士在读，远程合作。</p>
     </div>
-    <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>首页</span></div><img loading="lazy" decoding="async" src="img/tf-home.jpg" alt="首页：在库价值、只数、近 12 个月购销趋势"></div>
-    <p class="shotcap" data-cap>首页：在库价值、只数、近 12 个月购销趋势</p>
   </div>
-  <div class="cols">
-    <div><h3>原来的问题</h3><p>档案、交配、产蛋、巡检和买卖分散在十几张在线表格里。查一只龟的来历要翻好几张表，也看不到整体经营情况。</p></div>
-    <div><h3>做了什么</h3><p>每只龟一份档案，从建档到售出全程可查。巡检发现问题能派整改、分级验收，采购销售走审批。老板有经营看板和投屏用的数据大屏，客户扫码能看溯源页。</p></div>
-    <div><h3>我负责</h3><p>接手已有代码后，独立负责后续全部开发、小程序、部署上线和线上运维。</p></div>
+  <div class="nums rv">
+    <div class="glass"><b>51</b><span>页微信小程序，已上线</span></div>
+    <div class="glass"><b>7</b><span>个经营看板，加一块数据大屏</span></div>
+    <div class="glass"><b>20</b><span>条左右 4K 讲解视频成片</span></div>
+    <div class="glass"><b>2</b><span>款开源软件，可以直接下载</span></div>
   </div>
-  <ul class="proof"><li class="live">已上线，真实养殖场在用</li><li>300+ 次提交</li><li>35 个数据模型</li><li>87 个后端接口</li><li>小程序 51 页</li><li>43 个测试 · CI</li></ul>
-  <p class="stack">Next.js 15 · React 19 · Ant Design · Prisma · PostgreSQL · Taro · Docker · 阿里云 OSS · 微信订阅消息</p>
-  <p class="note">源码不公开。截图来自去品牌的展示模式，数据是程序生成的演示数据。</p>
 </div></section>
 
-<section class="case" id="video"><div class="wrap">
-  <div class="head">
-    <div class="kind">视频制作 · 出片流程</div>
-    <h2>视频出片流程</h2>
-    <p>从一篇稿子到 4K 成片，每一步有标准、有检查。3 个短视频账号在用同一套流程。</p>
-  </div>
-  <div class="frames">
-    <figure><video src="img/vd-clip.mp4" poster="img/vd-1.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="成片开头 22 秒"></video></figure>
-    <figure><img loading="lazy" decoding="async" src="img/vd-2.jpg" alt="成片画面：设置文件里的命令"></figure>
-    <figure><img loading="lazy" decoding="async" src="img/vd-3.jpg" alt="成片画面：一共找到两千五百多个密钥"></figure>
-    <figure><img loading="lazy" decoding="async" src="img/vd-4.jpg" alt="成片画面：确认框里的三个选项"></figure>
-  </div>
-  <p class="shotcap">最左边是成片开头的 22 秒，可以点开声音；右边三张是同一期里的画面。画面用代码生成，字幕和配音逐字对齐。</p>
-  <ol class="pipe">
-    <li>选题</li><li>对标拆稿</li><li>写稿和验收</li><li>配音</li><li>做画面</li><li>自检</li><li>成片和封面</li><li>发布包</li><li>数据复盘</li>
-  </ol>
-  <div class="cols">
-    <div><h3>原来的问题</h3><p>一个人做视频，写稿、配音、画面、字幕、封面每一步都靠手感，质量忽高忽低，做完也不知道哪里出了问题。</p></div>
-    <div><h3>做了什么</h3><p>把出片拆成固定步骤，每步写清产出和验收标准。成片前自动检查响度、字幕位置和口播是否与稿子一致。发布后按 1 天、3 天、7 天复盘数据，结论写回下一期的标准。</p></div>
-    <div><h3>每期交付</h3><p>4K 成片（带字幕和不带字幕）、三种比例的封面、发布文案和一张交付单。配乐和音效自己合成，不涉及版权素材。</p></div>
-  </div>
-  <ul class="proof"><li>3 个账号在用</li><li>约 20 条成片</li><li>单期约 5 小时</li><li>横屏和竖屏 4K</li></ul>
-  <p class="stack">Remotion · React · whisper · ffmpeg · Claude Code skill</p>
-</div></section>
+<section class="sec g-amber" id="works"><div class="wrap">
+  <div class="sechead rv"><div class="big">Selected <i>Work</i></div><span class="tag">精选作品</span></div>
 
-<section class="case" id="toolkit"><div class="wrap">
-  <div class="head">
-    <div class="kind">AI 工作流 · 命令行工具</div>
-    <h2>录播课总结工具</h2>
-    <p>把两小时的录播，变成能点回原片的复习笔记。</p>
-  </div>
-  <div class="split">
-    <div class="txt">
-      <div><h3>原来的问题</h3><p>录播课太长，复习时找不到重点在哪一分钟。直接让 AI 总结，时间戳经常是编的。</p></div>
-      <div><h3>做了什么</h3><p>在本机转写录音，识别幻灯片画面并和课件页码对齐，再交给你自己在用的 AI 写总结。写完自动核对，时间戳超出录播时长或落在静音段会直接报出来。</p></div>
-      <div><h3>我负责</h3><p>全部设计和开发。给朋友做过多轮真人测试，按反馈修过 Mac 和 Windows 的问题。</p></div>
-      <ul class="proof"><li>开源</li><li>69 个测试 · CI</li><li>Mac + Windows</li><li>中英双语</li><li>Claude Code · Codex · Gemini</li></ul>
-      <p class="stack">Python · whisper.cpp · ffmpeg · tesseract · Claude Code skill</p>
-      <p><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">在 GitHub 上看代码</a> <a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest" style="margin-left:6px">下载</a></p>
+  <article class="case" id="turtle">
+    <div class="chead rv"><div class="no">01</div><div>
+      <div class="kind">行业管理系统 · Web + 微信小程序</div>
+      <h2>龟场管理系统</h2>
+      <p>把养殖场的十几张表格，换成一套自己的系统。真实养殖场正在用。</p>
+    </div></div>
+    <div data-gallery class="rv">
+      <div class="tabs" role="group" aria-label="龟场管理系统截图">
+        <button aria-pressed="true" data-src="img/tf-home.jpg" data-c="首页：在库价值、只数、近 12 个月购销趋势">首页</button>
+        <button aria-pressed="false" data-src="img/tf-screen.jpg" data-c="数据大屏：各养殖区域的缸位占用、实时预警、孵化进度">数据大屏</button>
+        <button aria-pressed="false" data-src="img/tf-dashboard-finance.jpg" data-c="财务看板：当月售出、购入、支出和净利润">财务看板</button>
+        <button aria-pressed="false" data-src="img/tf-dashboard-farm.jpg" data-c="龟场概况：月度购销对比、资产状态、品种分布">龟场概况</button>
+        <button aria-pressed="false" data-src="img/tf-approvals.jpg" data-c="审批中心：折损单和费用支出走审批">审批中心</button>
+        <button aria-pressed="false" data-src="img/tf-trace.jpg" data-c="一龟一码溯源页：客户扫码看到的影像档案和时间线">扫码溯源</button>
+        <button aria-pressed="false" data-src="img/tf-intro.jpg" data-c="产品介绍页">产品介绍页</button>
+      </div>
+      <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>首页</span></div><img loading="lazy" decoding="async" src="img/tf-home.jpg" alt="首页：在库价值、只数、近 12 个月购销趋势"></div>
+      <p class="shotcap" data-cap>首页：在库价值、只数、近 12 个月购销趋势</p>
     </div>
-    <div>
-      <div class="win"><div class="bar"><i></i><i></i><i></i><span>总结/DEMO1001/第一周.md</span></div>
+    <div class="cols rv">
+      <div class="glass"><h3>原来的问题</h3><p>档案、交配、产蛋、巡检和买卖分散在十几张在线表格里。查一只龟的来历要翻好几张表，也看不到整体经营情况。</p></div>
+      <div class="glass"><h3>做了什么</h3><p>每只龟一份档案，从建档到售出全程可查。巡检发现问题能派整改、分级验收，采购销售走审批。老板有经营看板和投屏用的数据大屏，客户扫码能看溯源页。</p></div>
+      <div class="glass"><h3>我负责</h3><p>接手已有代码后，独立负责后续全部开发、小程序、部署上线和线上运维。</p></div>
+    </div>
+    <ul class="proof rv"><li class="live">已上线，真实养殖场在用</li><li>小程序 51 页</li><li>7 个经营看板</li><li>87 个后端接口</li><li>35 个数据模型</li><li>自动化测试 · CI</li></ul>
+    <p class="stack">Next.js 15 · React 19 · Ant Design · Prisma · PostgreSQL · Taro · Docker · 阿里云 OSS · 微信订阅消息</p>
+    <p class="note">源码不公开。截图来自去品牌的展示模式，数据是程序生成的演示数据。</p>
+  </article>
+
+  <article class="case" id="video">
+    <div class="chead rv"><div class="no">02</div><div>
+      <div class="kind">视频制作 · 出片流程</div>
+      <h2>视频出片流程</h2>
+      <p>从一篇稿子到 4K 成片，每一步有标准、有检查。3 个短视频账号在用同一套流程。</p>
+    </div></div>
+    <div class="frames rv">
+      <figure><video src="img/vd-clip.mp4" poster="img/vd-1.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="成片开头 22 秒"></video></figure>
+      <figure><img loading="lazy" decoding="async" src="img/vd-2.jpg" alt="成片画面：设置文件里的命令"></figure>
+      <figure><img loading="lazy" decoding="async" src="img/vd-3.jpg" alt="成片画面：一共找到两千五百多个密钥"></figure>
+      <figure><img loading="lazy" decoding="async" src="img/vd-4.jpg" alt="成片画面：确认框里的三个选项"></figure>
+    </div>
+    <p class="shotcap" style="margin-top:-12px">最左边是成片开头的 22 秒，可以点开声音；右边三张是同一期里的画面。画面用代码生成，字幕和配音逐字对齐。</p>
+    <ol class="pipe rv">
+      <li>选题</li><li>对标拆稿</li><li>写稿和验收</li><li>配音</li><li>做画面</li><li>自检</li><li>成片和封面</li><li>发布包</li><li>数据复盘</li>
+    </ol>
+    <div class="cols rv">
+      <div class="glass"><h3>原来的问题</h3><p>一个人做视频，写稿、配音、画面、字幕、封面每一步都靠手感，质量忽高忽低，做完也不知道哪里出了问题。</p></div>
+      <div class="glass"><h3>做了什么</h3><p>把出片拆成固定步骤，每步写清产出和验收标准。成片前自动检查响度、字幕位置和口播是否与稿子一致。发布后按 1 天、3 天、7 天复盘数据，结论写回下一期的标准。</p></div>
+      <div class="glass"><h3>每期交付</h3><p>4K 成片（带字幕和不带字幕）、三种比例的封面、发布文案和一张交付单。配乐和音效自己合成，不涉及版权素材。</p></div>
+    </div>
+    <ul class="proof rv"><li>3 个账号在用</li><li>约 20 条成片</li><li>单期约 5 小时</li><li>横屏和竖屏 4K</li></ul>
+    <p class="stack">Remotion · React · whisper · ffmpeg · Claude Code skill</p>
+  </article>
+
+  <article class="case" id="toolkit">
+    <div class="chead rv"><div class="no">03</div><div>
+      <div class="kind">AI 工作流 · 命令行工具</div>
+      <h2>录播课总结工具</h2>
+      <p>把两小时的录播，变成能点回原片的复习笔记。</p>
+    </div></div>
+    <div class="split rv">
+      <div class="txt">
+        <div><h3>原来的问题</h3><p>录播课太长，复习时找不到重点在哪一分钟。直接让 AI 总结，时间戳经常是编的。</p></div>
+        <div><h3>做了什么</h3><p>在本机转写录音，识别幻灯片画面并和课件页码对齐，再交给你自己在用的 AI 写总结。写完自动核对，时间戳超出录播时长或落在静音段会直接报出来。</p></div>
+        <div><h3>我负责</h3><p>全部设计和开发。给朋友做过多轮真人测试，按反馈修过 Mac 和 Windows 的问题。</p></div>
+        <ul class="proof"><li>开源</li><li>69 个测试 · CI</li><li>Mac + Windows</li><li>中英双语</li><li>Claude Code · Codex · Gemini</li></ul>
+        <p class="stack">Python · whisper.cpp · ffmpeg · tesseract · Claude Code skill</p>
+        <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">在 GitHub 上看代码</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest">下载</a></div>
+      </div>
+      <div>
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>总结/DEMO1001/第一周.md</span></div>
 <pre class="sample"><b># DEMO1001 第一周 — 循环测试与素路径</b>
 
 <b>## 课程通知</b>（01:30–01:46）
@@ -326,84 +338,100 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 
 <b>## 复习卡</b>
 - 简单路径的定义？:: 不重复访问任何节点的路径。</pre>
+        </div>
+        <p class="shotcap">摘自仓库自带的合成示例讲座。示例内容是程序生成的，不含任何真实课程。</p>
       </div>
-      <p class="shotcap">摘自仓库自带的合成示例讲座。示例内容是程序生成的，不含任何真实课程。</p>
     </div>
-  </div>
-</div></section>
+  </article>
 
-<section class="case" id="jizhang"><div class="wrap">
-  <div class="head">
-    <div class="kind">桌面应用 · 开源</div>
-    <h2>简账</h2>
-    <p>给小企业用的离线记账软件，装上就能用。</p>
-  </div>
-  <div data-gallery>
-    <div class="tabs" role="group" aria-label="简账截图">
-      <button aria-pressed="true" data-src="img/jz-dashboard.jpg" data-c="工作台：货币资金、本年收入和净利润、最近凭证">工作台</button>
-      <button aria-pressed="false" data-src="img/jz-voucher.jpg" data-c="凭证录入：借贷平衡校验和大写金额">凭证录入</button>
-      <button aria-pressed="false" data-src="img/jz-trial-balance.jpg" data-c="科目余额表：期初、本期发生、期末">科目余额表</button>
-      <button aria-pressed="false" data-src="img/jz-balance-sheet.jpg" data-c="资产负债表（会小企 01 表）">资产负债表</button>
+  <article class="case" id="jizhang">
+    <div class="chead rv"><div class="no">04</div><div>
+      <div class="kind">桌面应用 · 开源</div>
+      <h2>简账</h2>
+      <p>给小企业用的离线记账软件，装上就能用。</p>
+    </div></div>
+    <div data-gallery class="rv">
+      <div class="tabs" role="group" aria-label="简账截图">
+        <button aria-pressed="true" data-src="img/jz-dashboard.jpg" data-c="工作台：货币资金、本年收入和净利润、最近凭证">工作台</button>
+        <button aria-pressed="false" data-src="img/jz-voucher.jpg" data-c="凭证录入：借贷平衡校验和大写金额">凭证录入</button>
+        <button aria-pressed="false" data-src="img/jz-trial-balance.jpg" data-c="科目余额表：期初、本期发生、期末">科目余额表</button>
+        <button aria-pressed="false" data-src="img/jz-balance-sheet.jpg" data-c="资产负债表（会小企 01 表）">资产负债表</button>
+      </div>
+      <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>工作台</span></div><img loading="lazy" decoding="async" src="img/jz-dashboard.jpg" alt="工作台：货币资金、本年收入和净利润、最近凭证"></div>
+      <p class="shotcap" data-cap>工作台：货币资金、本年收入和净利润、最近凭证</p>
     </div>
-    <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>工作台</span></div><img loading="lazy" decoding="async" src="img/jz-dashboard.jpg" alt="工作台：货币资金、本年收入和净利润、最近凭证"></div>
-    <p class="shotcap" data-cap>工作台：货币资金、本年收入和净利润、最近凭证</p>
-  </div>
-  <div class="cols">
-    <div><h3>原来的问题</h3><p>小企业和代账会计想要一个不联网、不用装数据库的记账工具，账套能直接拷走备份。</p></div>
-    <div><h3>做了什么</h3><p>录入凭证后自动生成科目余额表、总账、明细账和三张财务报表。支持一键结转损益和结账锁期，每个账套是一个文件。</p></div>
-    <div><h3>我负责</h3><p>全部设计和开发，包括记账引擎、三张报表的取数规则和 Windows 安装包。</p></div>
-  </div>
-  <ul class="proof"><li>14 个测试 · CI</li><li>预置 66 个会计科目</li><li>Windows 安装包</li><li>MIT 开源</li></ul>
-  <p class="stack">Electron · Vue 3 · Element Plus · TypeScript · sql.js</p>
-  <p><a class="btn sm" href="https://github.com/camzhou831-star/jizhang">在 GitHub 上看代码</a> <a class="btn sm" href="https://github.com/camzhou831-star/jizhang/releases/latest" style="margin-left:6px">下载 Windows 版</a> <span class="note" style="margin-left:10px">截图里的"示范商贸有限公司"是虚构的演示账套。</span></p>
+    <div class="cols rv">
+      <div class="glass"><h3>原来的问题</h3><p>小企业和代账会计想要一个不联网、不用装数据库的记账工具，账套能直接拷走备份。</p></div>
+      <div class="glass"><h3>做了什么</h3><p>录入凭证后自动生成科目余额表、总账、明细账和三张财务报表。支持一键结转损益和结账锁期，每个账套是一个文件。</p></div>
+      <div class="glass"><h3>我负责</h3><p>全部设计和开发，包括记账引擎、三张报表的取数规则和 Windows 安装包。</p></div>
+    </div>
+    <ul class="proof rv"><li>Windows 安装包</li><li>预置 66 个会计科目</li><li>自动化测试 · CI</li><li>MIT 开源</li></ul>
+    <p class="stack">Electron · Vue 3 · Element Plus · TypeScript · sql.js</p>
+    <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/jizhang">在 GitHub 上看代码</a><a class="btn sm" href="https://github.com/camzhou831-star/jizhang/releases/latest">下载 Windows 版</a><span class="note">截图里的"示范商贸有限公司"是虚构的演示账套。</span></div>
+  </article>
 </div></section>
 
-<section class="more" id="more"><div class="wrap">
-  <div class="head"><div class="kind">MORE</div><h2>更多作品</h2></div>
-  <div class="grid">
-    <div class="card"><div class="kind">桌面应用 · AI 集成</div><h3>AI 工作台</h3><p>装在本机的 AI 工作台：读写 Obsidian 知识库，AI 写回前要审批；可以接本地模型和多家云端模型；能转写音视频，导出 PPT、Word 和 Excel。</p><ul class="proof"><li>278 次提交</li><li>约 287 个测试</li><li>Win + macOS 安装包</li></ul><p class="stack">React · FastAPI · Electron · Ollama</p></div>
-    <div class="card"><div class="kind">浏览器扩展</div><h3>网页剪藏插件</h3><p>把正在看的网页存成干净的 Markdown 笔记。按网站写适配器，认不出的网页走通用正文提取，图片可以存到本地。</p><ul class="proof"><li>95 个测试 · CI</li><li>Manifest V3</li></ul><p class="stack">WXT · React · TypeScript · Turndown</p></div>
-    <div class="card"><div class="kind">客户项目</div><h3>多租户内容运营平台</h3><p>为某品牌做的门店账号运营平台。数据库做了行级隔离，配 40 多份产品和架构文档。按约定不展示代码和界面。</p><ul class="proof"><li>136 个测试</li></ul><p class="stack">Fastify · Next.js · PostgreSQL RLS</p></div>
-    <div class="card"><div class="kind">自研原型</div><h3>轻核算</h3><p>给小微商贸企业的进销存加财务核算：业务员录单，系统自动出库存、应收应付和凭证草稿。可以单机、局域网或云端部署。</p><p class="stack">Python · SQLite</p></div>
-    <div class="card"><div class="kind">方案设计</div><h3>企业 AI 落地方案</h3><p>培训加试点陪跑的一整套文档、模板和课件，课件由脚本从同一份讲稿生成。目前是方案，没有实际交付过。</p><p class="stack">飞书 · Node.js</p></div>
+<section class="sec g-teal" id="more"><div class="wrap">
+  <div class="sechead rv"><div class="big">More <i>Work</i></div><span class="tag">更多作品</span></div>
+  <div class="grid rv">
+    <div class="glass card"><div class="kind">桌面应用 · AI 集成</div><h3>AI 工作台</h3><p>装在本机的 AI 工作台：读写 Obsidian 知识库，AI 写回前要审批；可以接本地模型和多家云端模型；能转写音视频，导出 PPT、Word 和 Excel。</p><ul class="proof"><li>Win + macOS 安装包</li><li>约 287 个测试</li></ul><p class="stack">React · FastAPI · Electron · Ollama</p></div>
+    <div class="glass card"><div class="kind">浏览器扩展</div><h3>网页剪藏插件</h3><p>把正在看的网页存成干净的 Markdown 笔记。按网站写适配器，认不出的网页走通用正文提取，图片可以存到本地。</p><ul class="proof"><li>Chrome · Edge</li><li>95 个测试 · CI</li></ul><p class="stack">WXT · React · TypeScript · Turndown</p></div>
+    <div class="glass card"><div class="kind">客户项目</div><h3>多租户内容运营平台</h3><p>为某品牌做的门店账号运营平台。数据库做了行级隔离，配 40 多份产品和架构文档。按约定不展示代码和界面。</p><ul class="proof"><li>136 个测试</li></ul><p class="stack">Fastify · Next.js · PostgreSQL RLS</p></div>
+    <div class="glass card"><div class="kind">自研原型</div><h3>轻核算</h3><p>给小微商贸企业的进销存加财务核算：业务员录单，系统自动出库存、应收应付和凭证草稿。可以单机、局域网或云端部署。</p><p class="stack">Python · SQLite</p></div>
+    <div class="glass card"><div class="kind">咨询与方案</div><h3>企业 AI 落地方案</h3><p>帮企业把 AI 用进日常工作的一套做法：先做全员培训，再挑一个业务做试点陪跑。配套的文档、模板和课件已经成套，可以按你的行业和岗位调整。</p><p class="stack">培训 · 试点陪跑 · 方案咨询</p></div>
   </div>
 </div></section>
 
-<section class="work" id="work"><div class="wrap">
-  <div class="head"><div class="kind">SERVICES</div><h2>能做什么</h2><p>下面每一项都有做过的东西可以看。不在列表里的需求，也可以先聊。</p></div>
-  <div class="svc">
-    <div><h3>管理系统和后台</h3><p>档案、审批、报表、权限，按你的业务流程定制。</p><a href="#turtle">做过：龟场管理系统</a></div>
-    <div><h3>微信小程序</h3><p>和后台共用一套数据，员工在现场用手机就能录。</p><a href="#turtle">做过：51 页的龟场小程序</a></div>
-    <div><h3>企业官网和落地页</h3><p>产品介绍、公司官网、活动页，手机和电脑上都好看。</p><a href="#turtle">做过：龟场产品介绍页、本站</a></div>
-    <div><h3>数据看板和大屏</h3><p>把经营数据做成老板一眼看得懂的图，可以投屏。</p><a href="#turtle">做过：7 个经营看板、数据大屏</a></div>
-    <div><h3>后端接口和数据库</h3><p>接口设计、数据库建模、多租户隔离，对接微信和云存储，部署上线。</p><a href="#more">做过：87 个接口、多租户平台</a></div>
-    <div><h3>AI 工具和自动化</h3><p>把大模型接进你的流程：资料问答、录音转写和总结、重复工作自动化。</p><a href="#toolkit">做过：录播课总结工具、AI 工作台</a></div>
-    <div><h3>桌面软件和浏览器插件</h3><p>不联网也能用的 Windows 和 macOS 软件，Chrome 和 Edge 插件。</p><a href="#jizhang">做过：简账、网页剪藏插件</a></div>
-    <div><h3>讲解视频</h3><p>产品介绍、知识科普、课程配套动画，交付 4K 成片和封面。</p><a href="#video">做过：约 20 条成片</a></div>
+<section class="sec g-amber" id="work"><div class="wrap">
+  <div class="sechead rv"><div class="big">What <i>I Do</i></div><span class="tag">能做什么</span><p>每一项后面都标了对应的作品。不在列表里的需求，也可以先聊。</p></div>
+  <div class="svc rv">
+    <div class="glass hot"><h3>管理系统和后台</h3><p>档案、审批、报表、权限，按你的业务流程定制。</p><a href="#turtle">做过：龟场管理系统</a></div>
+    <div class="glass"><h3>微信小程序</h3><p>和后台共用一套数据，员工在现场用手机就能录。</p><a href="#turtle">做过：51 页的龟场小程序</a></div>
+    <div class="glass"><h3>企业官网和落地页</h3><p>产品介绍、公司官网、活动页，手机和电脑上都好看。</p><a href="#turtle">做过：龟场产品介绍页、本站</a></div>
+    <div class="glass"><h3>数据看板和大屏</h3><p>把经营数据做成老板一眼看得懂的图，可以投屏。</p><a href="#turtle">做过：7 个经营看板、数据大屏</a></div>
+    <div class="glass"><h3>后端接口和数据库</h3><p>接口设计、数据库建模、多租户隔离，对接微信和云存储，部署上线。</p><a href="#more">做过：87 个接口、多租户平台</a></div>
+    <div class="glass"><h3>AI 工具和自动化</h3><p>把大模型接进你的流程：资料问答、录音转写和总结、重复工作自动化。</p><a href="#toolkit">做过：录播课总结工具、AI 工作台</a></div>
+    <div class="glass"><h3>桌面软件和浏览器插件</h3><p>不联网也能用的 Windows 和 macOS 软件，Chrome 和 Edge 插件。</p><a href="#jizhang">做过：简账、网页剪藏插件</a></div>
+    <div class="glass"><h3>讲解视频</h3><p>产品介绍、知识科普、课程配套动画，交付 4K 成片和封面。</p><a href="#video">做过：约 20 条成片</a></div>
+    <div class="glass"><h3>企业 AI 落地咨询</h3><p>梳理哪些岗位适合先用 AI，出培训和试点方案，陪着把第一个试点跑起来。</p><a href="#more">配套：成套方案文档和课件</a></div>
   </div>
-  <div class="head" style="margin-top:28px"><div class="kind">PROCESS</div><h2>怎么合作</h2></div>
-  <ol class="steps">
-    <li><b>先聊需求</b><span>你讲现在怎么做、哪里费事。我会问清楚数据在哪、谁在用。</span></li>
-    <li><b>出原型和报价</b><span>先给能点的页面原型或分镜，确认范围后报固定价格和工期。</span></li>
-    <li><b>分段交付</b><span>收定金后开工，每周给你看一次能用的版本。</span></li>
-    <li><b>上线和交接</b><span>部署、写操作手册、交源码，约定一段维护期。</span></li>
+</div></section>
+
+<section class="sec g-blue" id="process"><div class="wrap">
+  <div class="sechead rv"><div class="big">How We <i>Work</i></div><span class="tag">怎么合作</span></div>
+  <ol class="steps rv">
+    <li class="glass"><b>先聊需求</b><span>你讲现在怎么做、哪里费事。我会问清楚数据在哪、谁在用。</span></li>
+    <li class="glass"><b>出原型和报价</b><span>先给能点的页面原型或分镜，确认范围后报固定价格和工期。</span></li>
+    <li class="glass"><b>分段交付</b><span>收定金后开工，每周给你看一次能用的版本。</span></li>
+    <li class="glass"><b>上线和交接</b><span>部署、写操作手册、交源码，约定一段维护期。</span></li>
   </ol>
-  <div class="contact">
-    <div class="cinfo">
-    <div><h3>联系方式</h3><p>看到后会及时回复。</p></div>
+</div></section>
+
+<section class="end" id="contact"><div class="wrap">
+  <div class="rv">
+    <div class="eyebrow">AVAILABLE FOR NEW PROJECTS</div>
+    <h2>有想做的系统、工具或视频，<br><em>可以先聊。</em></h2>
+    <p class="sub">联系方式在下面，看到后会及时回复。</p>
     <div class="mail">
       <span class="addr" id="mail-addr">camzhou831@gmail.com</span>
-      <button class="btn pri sm" type="button" id="mail-copy">复制邮箱</button>
-      <a class="btn sm" href="https://github.com/camzhou831-star">GitHub</a>
+      <button class="btn pri" type="button" id="mail-copy">复制邮箱</button>
+      <a class="btn" href="https://github.com/camzhou831-star">GitHub</a>
     </div>
-    </div>
-    <figure class="qr"><img loading="lazy" decoding="async" src="img/wechat.jpg" alt="微信二维码" width="132" height="132"><figcaption>微信扫码，请备注来意</figcaption></figure>
   </div>
+  <figure class="qr glass rv"><img loading="lazy" decoding="async" src="img/wechat.jpg" alt="微信二维码" width="150" height="150"><figcaption>微信扫码，请备注来意</figcaption></figure>
 </div></section>
 
-<footer><div class="wrap">Cam Zhou · 2026 年 11 月 · 截图中的数据均为演示数据</div></footer>
+<footer><div class="wrap"><span>Cam Zhou · 2026 年 11 月</span><span>截图中的数据均为演示数据</span></div></footer>
 
 <script>
+document.documentElement.classList.add('js');
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},4000);
+})();
 document.querySelectorAll('[data-gallery]').forEach(function(g){
   var img=g.querySelector('.win img'), cap=g.querySelector('[data-cap]'), t=g.querySelector('[data-t]');
   g.querySelectorAll('.tabs button').forEach(function(b){
