@@ -45,7 +45,7 @@ header.hero .wrap{padding-block:80px 52px;display:grid;grid-template-columns:min
 .ledger li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:baseline;padding:11px 18px;font-size:14.5px;border-bottom:1px solid var(--line)}
 .ledger li:last-child{border-bottom:0}
 .ledger b{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ledger span{font-family:var(--mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ledger span{font-size:13px;color:var(--muted);white-space:nowrap}
 .ledger em{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:1px 9px;white-space:nowrap}
 .ledger em.on{color:var(--ok);border-color:var(--ok)}
 .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
@@ -117,6 +117,14 @@ section[id],header[id]{scroll-margin-top:64px}
 pre.sample{margin:0;padding:20px 22px;font-family:var(--mono);font-size:12.5px;line-height:1.8;overflow-x:auto;white-space:pre;color:#cfd6e4}
 pre.sample b{color:var(--accent);font-weight:700} pre.sample u{text-decoration:none;color:var(--ok)}
 
+.frames{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:980px}
+.frames figure{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
+.frames img{display:block;width:100%;height:auto}
+.pipe{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 0;counter-reset:p}
+.pipe li{counter-increment:p;display:flex;align-items:center;font-size:14.5px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 10px;margin-right:26px;position:relative}
+.pipe li::before{content:counter(p);font-family:var(--mono);font-size:12px;color:var(--accent-ink);background:var(--accent);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;margin-right:8px}
+.pipe li:not(:last-child)::after{content:"→";position:absolute;right:-20px;color:var(--dim);font-weight:400}
+
 /* 更多作品 */
 section.more{border-top:1px solid var(--line)}
 section.more .wrap,section.work .wrap{padding-block:84px;display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
@@ -141,7 +149,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   .creds li{grid-template-columns:minmax(0,1fr)} .creds b{white-space:normal}
   .w7,.w5{grid-column:1/-1} .tile{min-height:0;padding:26px 22px 0;border-radius:22px}
   .cols,.grid{grid-template-columns:minmax(0,1fr)} .split{grid-template-columns:minmax(0,1fr);gap:28px}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))} .frames{grid-template-columns:repeat(2,minmax(0,1fr))}
   section.case .wrap,section.more .wrap,section.work .wrap{padding-block:56px}
   .links a:not(.btn){display:none}
 }
@@ -151,7 +159,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 <nav class="top"><div class="wrap">
   <a class="brand" href="#top">Cam Zhou<i>.</i></a>
   <div class="links">
-    <a href="#turtle">龟场管理系统</a><a href="#toolkit">录播课总结工具</a><a href="#jizhang">简账</a><a href="#more">更多作品</a><a href="#work">怎么合作</a>
+    <a href="#turtle">龟场管理系统</a><a href="#toolkit">录播课总结工具</a><a href="#jizhang">简账</a><a href="#video">视频流程</a><a href="#more">更多作品</a><a href="#work">怎么合作</a>
     <a class="btn sm" href="https://github.com/camzhou831-star">GitHub</a>
   </div>
 </div></nav>
@@ -168,21 +176,21 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   </ul>
   <div class="cta"><a class="btn pri" href="#work-grid">看作品</a><a class="btn" href="#work">怎么合作</a></div>
   <div class="stats">
-    <div><b>300+</b><span>次提交，系统已上线</span></div>
+    <div><b>1,000+</b><span>只龟在系统里管着</span></div>
     <div><b>51</b><span>页微信小程序</span></div>
-    <div><b>221</b><span>个自动化测试</span></div>
+    <div><b>20</b><span>条左右 4K 视频成片</span></div>
     <div><b>3</b><span>种交付：Web、小程序、桌面</span></div>
   </div>
  </div>
  <div class="win ledger" aria-label="项目清单">
   <div class="bar"><i></i><i></i><i></i><span>~/projects</span></div>
   <ul>
-    <li><b>龟场管理系统</b><span>300+ 次提交</span><em class="on">已上线</em></li>
-    <li><b>AI 工作台</b><span>278 次提交</span><em>v1.0</em></li>
-    <li><b>录播课总结工具</b><span>69 个测试</span><em>Mac · Win</em></li>
-    <li><b>网页剪藏插件</b><span>95 个测试</span><em>MV3</em></li>
-    <li><b>简账</b><span>14 个测试</span><em>开源</em></li>
-    <li><b>讲解视频</b><span>约 20 条成片</span><em>4K</em></li>
+    <li><b>龟场管理系统</b><span>养殖场每天在用</span><em class="on">已上线</em></li>
+    <li><b>录播课总结工具</b><span>录播变成复习笔记</span><em>Mac · Win</em></li>
+    <li><b>简账</b><span>小企业离线记账</span><em>开源</em></li>
+    <li><b>视频出片流程</b><span>从稿子到 4K 成片</span><em>3 个账号在用</em></li>
+    <li><b>AI 工作台</b><span>接本地大模型</span><em>桌面应用</em></li>
+    <li><b>网页剪藏插件</b><span>网页存成笔记</span><em>浏览器</em></li>
   </ul>
  </div>
 </div></header>
@@ -311,12 +319,36 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   <p><a class="btn sm" href="https://github.com/camzhou831-star/jizhang">在 GitHub 上看代码</a> <span class="note" style="margin-left:10px">截图里的"示范商贸有限公司"是虚构的演示账套。</span></p>
 </div></section>
 
+<section class="case" id="video"><div class="wrap">
+  <div class="head">
+    <div class="kind">视频制作 · 出片流程</div>
+    <h2>视频出片流程</h2>
+    <p>从一篇稿子到 4K 成片，每一步有标准、有检查。3 个短视频账号在用同一套流程。</p>
+  </div>
+  <div class="frames">
+    <figure><img src="img/vd-1.jpg" alt="成片画面：十万多个设置文件的数据画面"></figure>
+    <figure><img src="img/vd-2.jpg" alt="成片画面：设置文件里的命令"></figure>
+    <figure><img src="img/vd-3.jpg" alt="成片画面：一共找到两千五百多个密钥"></figure>
+    <figure><img src="img/vd-4.jpg" alt="成片画面：确认框里的三个选项"></figure>
+  </div>
+  <p class="shotcap">一期 2 分钟科普视频里的四个画面。画面用代码生成，字幕和配音逐字对齐。</p>
+  <ol class="pipe">
+    <li>选题</li><li>对标拆稿</li><li>写稿和验收</li><li>配音</li><li>做画面</li><li>自检</li><li>成片和封面</li><li>发布包</li><li>数据复盘</li>
+  </ol>
+  <div class="cols">
+    <div><h3>原来的问题</h3><p>一个人做视频，写稿、配音、画面、字幕、封面每一步都靠手感，质量忽高忽低，做完也不知道哪里出了问题。</p></div>
+    <div><h3>做了什么</h3><p>把出片拆成固定步骤，每步写清产出和验收标准。成片前自动检查响度、字幕位置和口播是否与稿子一致。发布后按 1 天、3 天、7 天复盘数据，结论写回下一期的标准。</p></div>
+    <div><h3>每期交付</h3><p>4K 成片（带字幕和不带字幕）、三种比例的封面、发布文案和一张交付单。配乐和音效自己合成，不涉及版权素材。</p></div>
+  </div>
+  <ul class="proof"><li>3 个账号在用</li><li>约 20 条成片</li><li>单期约 5 小时</li><li>横屏和竖屏 4K</li></ul>
+  <p class="stack">Remotion · React · whisper · ffmpeg · Claude Code skill</p>
+</div></section>
+
 <section class="more" id="more"><div class="wrap">
   <div class="head"><div class="kind">MORE</div><h2>更多作品</h2></div>
   <div class="grid">
     <div class="card"><div class="kind">桌面应用 · AI 集成</div><h3>AI 工作台</h3><p>装在本机的 AI 工作台：读写 Obsidian 知识库，AI 写回前要审批；可以接本地模型和多家云端模型；能转写音视频，导出 PPT、Word 和 Excel。</p><ul class="proof"><li>278 次提交</li><li>约 287 个测试</li><li>Win + macOS 安装包</li></ul><p class="stack">React · FastAPI · Electron · Ollama</p></div>
     <div class="card"><div class="kind">浏览器扩展</div><h3>网页剪藏插件</h3><p>把正在看的网页存成干净的 Markdown 笔记。按网站写适配器，认不出的网页走通用正文提取，图片可以存到本地。</p><ul class="proof"><li>95 个测试 · CI</li><li>Manifest V3</li></ul><p class="stack">WXT · React · TypeScript · Turndown</p></div>
-    <div class="card"><div class="kind">讲解视频</div><h3>代码动画讲解视频</h3><p>画面用代码写成动画，字幕逐字对齐，配乐和音效自己合成。交付 4K 成片、封面、分轨音频和发布文案，每期附质检单。</p><ul class="proof"><li>约 20 条成片</li><li>代表作 5 分 41 秒</li></ul><p class="stack">Remotion · React · whisper · ffmpeg</p></div>
     <div class="card"><div class="kind">客户项目</div><h3>多租户内容运营平台</h3><p>为某品牌做的门店账号运营平台。数据库做了行级隔离，配 40 多份产品和架构文档。按约定不展示代码和界面。</p><ul class="proof"><li>136 个测试</li></ul><p class="stack">Fastify · Next.js · PostgreSQL RLS</p></div>
     <div class="card"><div class="kind">自研原型</div><h3>轻核算</h3><p>给小微商贸企业的进销存加财务核算：业务员录单，系统自动出库存、应收应付和凭证草稿。可以单机、局域网或云端部署。</p><p class="stack">Python · SQLite</p></div>
     <div class="card"><div class="kind">方案设计</div><h3>企业 AI 落地方案</h3><p>培训加试点陪跑的一整套文档、模板和课件，课件由脚本从同一份讲稿生成。目前是方案，没有实际交付过。</p><p class="stack">飞书 · Node.js</p></div>
