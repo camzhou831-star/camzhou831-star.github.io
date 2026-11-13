@@ -39,9 +39,17 @@ nav.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
 
 /* 首屏 */
 header.hero{background:radial-gradient(900px 480px at 78% 10%,#1a2a55 0%,transparent 70%),var(--bg);overflow:hidden}
-header.hero .wrap{padding-block:80px 52px}
+header.hero .wrap{padding-block:80px 52px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px;align-items:center}
+.herotxt{min-width:0}
+.ledger ul{list-style:none;margin:0;padding:8px 0}
+.ledger li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:baseline;padding:11px 18px;font-size:14.5px;border-bottom:1px solid var(--line)}
+.ledger li:last-child{border-bottom:0}
+.ledger b{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ledger span{font-family:var(--mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ledger em{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:1px 9px;white-space:nowrap}
+.ledger em.on{color:var(--ok);border-color:var(--ok)}
 .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-h1{font-size:clamp(38px,6.4vw,84px);font-weight:900;line-height:1.1;margin-top:20px;max-width:13em}
+h1{font-size:clamp(38px,5.6vw,76px);font-weight:900;line-height:1.1;margin-top:20px;max-width:13em}
 h1 em{font-style:normal;color:var(--accent)}
 .lede{color:var(--muted);font-size:19px;margin-top:26px;max-width:32em}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
@@ -56,6 +64,8 @@ section.bento .wrap{padding-block:8px 88px;display:grid;grid-template-columns:re
 .tile:hover{transform:translateY(-4px)}
 .tile .win{margin-top:auto;border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -10px 40px -18px #0009}
 .w7{grid-column:span 7} .w5{grid-column:span 5}
+.tile.crop .win{width:165%;max-width:none;border-radius:12px 0 0 0}
+.tile.crop .win img{max-width:none}
 .tl{display:grid;gap:6px;justify-items:end;text-align:right}
 .tl span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:#ffffffb0}
 .tl b{font-size:clamp(26px,3vw,38px);font-weight:900;line-height:1.15}
@@ -121,7 +131,7 @@ section.work{border-top:1px solid var(--line);background:var(--band)}
 footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px solid var(--line)}
 
 @media (max-width:900px){
-  header.hero .wrap{padding-block:56px 40px}
+  header.hero .wrap{padding-block:56px 40px;grid-template-columns:minmax(0,1fr);gap:36px}
   .w7,.w5{grid-column:1/-1} .tile{min-height:0;padding:26px 22px 0;border-radius:22px}
   .cols,.grid{grid-template-columns:minmax(0,1fr)} .split{grid-template-columns:minmax(0,1fr);gap:28px}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -140,6 +150,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
+ <div class="herotxt">
   <div class="eyebrow">Cam Zhou · 独立开发 · 全栈 + AI</div>
   <h1>一个人，把系统从需求<em>做到上线</em>。</h1>
   <p class="lede">我用 AI 协作开发。做过在真实养殖场里天天用的管理系统，也做桌面软件、浏览器插件和讲解视频。</p>
@@ -150,6 +161,18 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
     <div><b>221</b><span>个自动化测试</span></div>
     <div><b>3</b><span>种交付：Web、小程序、桌面</span></div>
   </div>
+ </div>
+ <div class="win ledger" aria-label="项目清单">
+  <div class="bar"><i></i><i></i><i></i><span>~/projects</span></div>
+  <ul>
+    <li><b>龟场管理系统</b><span>300+ 次提交</span><em class="on">已上线</em></li>
+    <li><b>AI 工作台</b><span>278 次提交</span><em>v1.0</em></li>
+    <li><b>录播课总结工具</b><span>69 个测试</span><em>Mac · Win</em></li>
+    <li><b>网页剪藏插件</b><span>95 个测试</span><em>MV3</em></li>
+    <li><b>简账</b><span>14 个测试</span><em>开源</em></li>
+    <li><b>讲解视频</b><span>约 20 条成片</span><em>4K</em></li>
+  </ul>
+ </div>
 </div></header>
 
 <section class="bento" id="work-grid"><div class="wrap">
@@ -157,7 +180,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
     <div class="tl"><span>行业管理系统 · 已上线</span><b>龟场管理系统</b><p>把养殖场的十几张表格，换成一套自己的系统。</p></div>
     <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="img/tf-home.jpg" alt="龟场管理系统首页"></div>
   </a>
-  <a class="tile t-navy w5" href="#turtle">
+  <a class="tile t-navy w5 crop" href="#turtle">
     <div class="tl"><span>同一套系统 · 投屏用</span><b>数据大屏</b><p>缸位占用、实时预警、孵化进度，挂在场区实时看。</p></div>
     <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="img/tf-screen.jpg" alt="龟场管理系统的数据大屏"></div>
   </a>
@@ -167,9 +190,14 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 - <u>[00:22]</u> 循环为什么难测（p2）
 - <u>[01:00]</u> 素路径（p4）
 - <u>[01:18]</u> 例子：while 循环（p5）
+- <u>[01:33]</u> 总结与 quiz 提示（p6）
+
+<b>## 考点信号</b>
+- 下周 quiz 考这套课件（01:35）
 
 <b>## 复习卡</b>
-- 简单路径的定义？:: 不重复访问任何节点</pre></div>
+- 简单路径的定义？:: 不重复访问任何节点
+- 素路径覆盖蕴含？:: 节点覆盖与边覆盖</pre></div>
   </a>
   <a class="tile t-indigo w7" href="#jizhang">
     <div class="tl"><span>桌面应用 · 开源</span><b>简账</b><p>给小企业用的离线记账软件，装上就能用。</p></div>
