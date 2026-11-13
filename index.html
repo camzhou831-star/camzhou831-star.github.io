@@ -48,8 +48,9 @@ header.hero .wrap{padding-block:80px 52px;display:grid;grid-template-columns:min
 .ledger span{font-size:13px;color:var(--muted);white-space:nowrap}
 .ledger em{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:1px 9px;white-space:nowrap}
 .ledger em.on{color:var(--ok);border-color:var(--ok)}
-.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-h1{font-size:clamp(38px,5.6vw,76px);font-weight:900;line-height:1.1;margin-top:20px;max-width:13em}
+.avail{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;color:#cfd6e4;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px 6px 12px}
+.avail i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
+h1{font-size:clamp(34px,4.8vw,64px);font-weight:900;line-height:1.16;margin-top:24px}
 h1 em{font-style:normal;color:var(--accent)}
 .lede{color:#cfd6e4;font-size:19px;margin-top:26px;max-width:32em}
 .creds{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px;max-width:34em}
@@ -166,21 +167,10 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
 
 <header class="hero" id="top"><div class="wrap">
  <div class="herotxt">
-  <div class="eyebrow">Cam Zhou · 独立开发 · 全栈 + AI</div>
-  <h1>把想法做成<em>真正在用</em>的系统。</h1>
-  <p class="lede">西澳大学信息技术硕士在读。我做的养殖场管理系统已经上线，客户每天用它管着 1,000 多只龟。</p>
-  <ul class="creds">
-    <li><b>西澳大学（UWA）</b><span>QS 2027 世界排名第 77 · 信息技术硕士在读 · 入学奖学金获得者</span></li>
-    <li><b>商用系统在线运行</b><span>1,000+ 只龟、14 个品种，Web 和小程序两端</span></li>
-    <li><b>交付的不只是代码</b><span>龟场项目附 43 个自动化测试、一键部署脚本和 4 套操作手册</span></li>
-  </ul>
+  <div class="avail"><i></i>接受新项目 · 远程合作</div>
+  <h1>你好，我是 Cam。<br>我把想法做成<em>真正在用</em>的系统。</h1>
+  <p class="lede">独立开发者，做管理系统、小程序、AI 工具和讲解视频。西澳大学（QS 世界第 77）信息技术硕士在读。</p>
   <div class="cta"><a class="btn pri" href="#work-grid">看作品</a><a class="btn" href="#work">怎么合作</a></div>
-  <div class="stats">
-    <div><b>1,000+</b><span>只龟在系统里管着</span></div>
-    <div><b>51</b><span>页微信小程序</span></div>
-    <div><b>20</b><span>条左右 4K 视频成片</span></div>
-    <div><b>3</b><span>种交付：Web、小程序、桌面</span></div>
-  </div>
  </div>
  <div class="win ledger" aria-label="项目清单">
   <div class="bar"><i></i><i></i><i></i><span>~/projects</span></div>
