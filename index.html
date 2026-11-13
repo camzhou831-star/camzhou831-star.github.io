@@ -85,7 +85,9 @@ section.bento .wrap{padding-block:8px 88px;display:grid;grid-template-columns:re
 /* 主案例 */
 section.case{border-top:1px solid var(--line)}
 section.case:nth-of-type(odd){background:var(--band)}
-section.case .wrap{padding-block:84px;display:grid;gap:36px}
+section.case .wrap{padding-block:84px;display:grid;grid-template-columns:minmax(0,1fr);gap:36px}
+[data-gallery]{min-width:0}
+section[id],header[id]{scroll-margin-top:64px}
 .head{display:grid;gap:10px;max-width:46em}
 .kind{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--accent)}
 .head h2{font-size:clamp(28px,3.6vw,42px);font-weight:900;line-height:1.2}
@@ -113,7 +115,7 @@ pre.sample b{color:var(--accent);font-weight:700} pre.sample u{text-decoration:n
 
 /* 更多作品 */
 section.more{border-top:1px solid var(--line)}
-section.more .wrap,section.work .wrap{padding-block:84px;display:grid;gap:34px}
+section.more .wrap,section.work .wrap{padding-block:84px;display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:12px;align-content:start}
 .card h3{font-size:19px;font-weight:900}
