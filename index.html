@@ -127,7 +127,7 @@ pre.sample b{color:var(--accent);font-weight:700} pre.sample u{text-decoration:n
 
 .frames{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:980px}
 .frames figure{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
-.frames img{display:block;width:100%;height:auto}
+.frames img,.frames video{display:block;width:100%;height:auto}
 .pipe{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 0;counter-reset:p}
 .pipe li{counter-increment:p;display:flex;align-items:center;font-size:14.5px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 10px;margin-right:26px;position:relative}
 .pipe li::before{content:counter(p);font-family:var(--mono);font-size:12px;color:var(--accent-ink);background:var(--accent);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;margin-right:8px}
@@ -136,7 +136,9 @@ pre.sample b{color:var(--accent);font-weight:700} pre.sample u{text-decoration:n
 /* 更多作品 */
 section.more{border-top:1px solid var(--line)}
 section.more .wrap,section.work .wrap{padding-block:84px;display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.grid .card{grid-column:span 2}
+.grid .card:nth-child(4),.grid .card:nth-child(5){grid-column:span 3}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:12px;align-content:start}
 .card h3{font-size:19px;font-weight:900}
 .card p{font-size:14.5px;color:var(--muted)}
@@ -156,7 +158,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   header.hero .wrap{padding-block:56px 40px;grid-template-columns:minmax(0,1fr);gap:36px}
   .ledger em:not(.on){display:none}
   .w7,.w5{grid-column:1/-1} .tile{min-height:0;padding:26px 22px 0;border-radius:22px}
-  .cols,.grid{grid-template-columns:minmax(0,1fr)} .split{grid-template-columns:minmax(0,1fr);gap:28px}
+  .cols,.grid{grid-template-columns:minmax(0,1fr)} .grid .card,.grid .card:nth-child(4),.grid .card:nth-child(5){grid-column:auto} .split{grid-template-columns:minmax(0,1fr);gap:28px}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))} .frames{grid-template-columns:repeat(2,minmax(0,1fr))}
   section.case .wrap,section.more .wrap,section.work .wrap{padding-block:56px}
   .links a:not(.btn){display:none}
@@ -199,7 +201,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   </a>
   <a class="tile t-navy w5" href="#video">
     <div class="tl"><span>视频制作 · 3 个账号在用</span><b>视频出片流程</b><p>从一篇稿子到 4K 成片，每一步有标准、有检查。</p></div>
-    <div class="strip"><img src="img/vd-1.jpg" alt="成片画面一"><img src="img/vd-3.jpg" alt="成片画面二"><img src="img/vd-4.jpg" alt="成片画面三"></div>
+    <div class="strip"><img src="img/vd-1.jpg" alt="成片画面一"><img loading="lazy" decoding="async" src="img/vd-3.jpg" alt="成片画面二"><img loading="lazy" decoding="async" src="img/vd-4.jpg" alt="成片画面三"></div>
   </a>
   <a class="tile t-amber w5" href="#toolkit">
     <div class="tl"><span>AI 工作流 · 命令行工具</span><b>录播课总结工具</b><p>两小时的录播，变成能点回原片的复习笔记。</p></div>
@@ -218,7 +220,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
   </a>
   <a class="tile t-indigo w7" href="#jizhang">
     <div class="tl"><span>桌面应用 · 开源</span><b>简账</b><p>给小企业用的离线记账软件，装上就能用。</p></div>
-    <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="img/jz-dashboard.jpg" alt="简账工作台"></div>
+    <div class="win"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" src="img/jz-dashboard.jpg" alt="简账工作台"></div>
   </a>
 </div></section>
 
@@ -238,7 +240,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
       <button aria-pressed="false" data-src="img/tf-trace.jpg" data-c="一龟一码溯源页：客户扫码看到的影像档案和时间线">扫码溯源</button>
       <button aria-pressed="false" data-src="img/tf-intro.jpg" data-c="产品介绍页">产品介绍页</button>
     </div>
-    <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>首页</span></div><img src="img/tf-home.jpg" alt="首页：在库价值、只数、近 12 个月购销趋势"></div>
+    <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>首页</span></div><img loading="lazy" decoding="async" src="img/tf-home.jpg" alt="首页：在库价值、只数、近 12 个月购销趋势"></div>
     <p class="shotcap" data-cap>首页：在库价值、只数、近 12 个月购销趋势</p>
   </div>
   <div class="cols">
@@ -258,12 +260,12 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
     <p>从一篇稿子到 4K 成片，每一步有标准、有检查。3 个短视频账号在用同一套流程。</p>
   </div>
   <div class="frames">
-    <figure><img src="img/vd-1.jpg" alt="成片画面：十万多个设置文件的数据画面"></figure>
-    <figure><img src="img/vd-2.jpg" alt="成片画面：设置文件里的命令"></figure>
-    <figure><img src="img/vd-3.jpg" alt="成片画面：一共找到两千五百多个密钥"></figure>
-    <figure><img src="img/vd-4.jpg" alt="成片画面：确认框里的三个选项"></figure>
+    <figure><video src="img/vd-clip.mp4" poster="img/vd-1.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="成片开头 22 秒"></video></figure>
+    <figure><img loading="lazy" decoding="async" src="img/vd-2.jpg" alt="成片画面：设置文件里的命令"></figure>
+    <figure><img loading="lazy" decoding="async" src="img/vd-3.jpg" alt="成片画面：一共找到两千五百多个密钥"></figure>
+    <figure><img loading="lazy" decoding="async" src="img/vd-4.jpg" alt="成片画面：确认框里的三个选项"></figure>
   </div>
-  <p class="shotcap">一期 2 分钟科普视频里的四个画面。画面用代码生成，字幕和配音逐字对齐。</p>
+  <p class="shotcap">最左边是成片开头的 22 秒，可以点开声音；右边三张是同一期里的画面。画面用代码生成，字幕和配音逐字对齐。</p>
   <ol class="pipe">
     <li>选题</li><li>对标拆稿</li><li>写稿和验收</li><li>配音</li><li>做画面</li><li>自检</li><li>成片和封面</li><li>发布包</li><li>数据复盘</li>
   </ol>
@@ -328,7 +330,7 @@ footer .wrap{padding-block:30px;font-size:13px;color:var(--dim);border-top:1px s
       <button aria-pressed="false" data-src="img/jz-trial-balance.jpg" data-c="科目余额表：期初、本期发生、期末">科目余额表</button>
       <button aria-pressed="false" data-src="img/jz-balance-sheet.jpg" data-c="资产负债表（会小企 01 表）">资产负债表</button>
     </div>
-    <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>工作台</span></div><img src="img/jz-dashboard.jpg" alt="工作台：货币资金、本年收入和净利润、最近凭证"></div>
+    <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>工作台</span></div><img loading="lazy" decoding="async" src="img/jz-dashboard.jpg" alt="工作台：货币资金、本年收入和净利润、最近凭证"></div>
     <p class="shotcap" data-cap>工作台：货币资金、本年收入和净利润、最近凭证</p>
   </div>
   <div class="cols">
