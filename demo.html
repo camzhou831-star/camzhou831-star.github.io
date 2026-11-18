@@ -3,361 +3,136 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cam Zhou 作品演示</title>
-<meta name="description" content="Cam Zhou 作品的引导式演示：龟场管理系统、视频出片流程、课程总结工具。截图来自去品牌的展示模式，数据均为演示数据。">
+<title>Cam Zhou 出片演示</title>
+<meta name="description" content="给一段音频、文案和素材，按固定流程做出一条 4K 讲解视频。演示素材均为虚构。">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-/* 和作品集同一套 token。结构参照 Navattic / Arcade 的演示中心：先选路线，再按步骤看真实界面，热点 + 短说明 + 进度，最后一步留联系方式 */
-:root{color-scheme:dark;--bg:#0b0b0c;--solid:#131314;--solid2:#1a1a1c;--surface:#ffffff08;--line:#ffffff1a;--line2:#ffffff0f;--ink:#efe9dc;--soft:#cfc9bc;--muted:#99958b;--dim:#6b6860;--accent:#e9b24a;--accent-ink:#1b1303;--ok:#7fd3a4;--bad:#f08a7e;--info:#8ec5ff;
+:root{color-scheme:dark;--bg:#0b0b0c;--solid:#131314;--solid2:#1a1a1c;--line:#ffffff1a;--line2:#ffffff0f;--ink:#efe9dc;--soft:#cfc9bc;--muted:#99958b;--dim:#6b6860;--accent:#e9b24a;--accent-ink:#1b1303;--ok:#7fd3a4;
 --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;--serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;--disp:"Instrument Serif","Noto Serif SC","Times New Roman",serif;--mono:"JetBrains Mono","SF Mono",Menlo,Consolas,monospace}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink)}
-body{font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 64px}
+body{font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 72px}
 a{color:var(--accent)}
-button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-[hidden]{display:none!important}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line)}
 .brand{font-family:var(--disp);font-size:26px;text-decoration:none;color:var(--ink)}
 .brand i{color:var(--accent);font-style:normal}
-.note{font-size:12.5px;color:var(--muted)}
-.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:8px 18px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid #ffffff33;font-weight:500}
-.btn:disabled{opacity:.4;cursor:default}
-
-/* 选路线 */
-.intro{padding-block:40px 10px}
-.intro h1{font-family:var(--disp);font-weight:400;font-size:clamp(40px,6vw,68px);line-height:1;margin:0 0 10px}
-.intro h1 em{color:var(--accent)}
-.intro p{color:var(--soft);margin:0 0 26px;max-width:58ch}
-.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.path{text-align:left;background:var(--solid);border:1px solid var(--line);border-radius:16px;padding:0;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
-.path:hover{border-color:var(--accent);transform:translateY(-2px)}
-.path .thumb{aspect-ratio:16/9;background:#000 center/cover no-repeat;border-bottom:1px solid var(--line)}
-.path .tx{padding:14px 16px 16px;display:grid;gap:4px}
-.path .who{font-size:12.5px;color:var(--accent)}
-.path .t{font-family:var(--serif);font-weight:700;font-size:18px}
-.path .d{font-size:13.5px;color:var(--muted)}
-.path .meta{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:4px}
-@media (max-width:760px){.paths{grid-template-columns:1fr}}
-
-/* 演示区 */
-.demo{display:grid;grid-template-columns:250px minmax(0,1fr);gap:18px;margin-top:18px}
-@media (max-width:900px){.demo{grid-template-columns:1fr}}
-.side{display:grid;gap:12px;align-content:start}
-.side .back{background:none;border:0;color:var(--muted);font-size:13px;text-align:left;padding:0}
-.side .back:hover{color:var(--ink)}
-.side h2{font-family:var(--serif);font-size:20px;margin:0}
-.side .sub{font-size:13px;color:var(--muted);margin:0}
-.chap{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-.chap button{width:100%;background:transparent;border:0;text-align:left;padding:7px 10px;border-radius:8px;display:grid;grid-template-columns:20px 1fr;gap:8px;align-items:start;font-size:13.5px;color:var(--soft)}
-.chap button:hover{background:var(--surface)}
-.chap .ck{width:18px;height:18px;border-radius:50%;border:1px solid #ffffff38;display:grid;place-items:center;font-size:10px;margin-top:2px;color:transparent}
-.chap .done .ck{background:var(--ok);border-color:var(--ok);color:#06210f}
-.chap .cur{background:#e9b24a14;color:var(--ink)}
-.chap .cur .ck{border-color:var(--accent)}
-@media (max-width:900px){.chap{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;padding-bottom:4px}.chap button{grid-template-columns:18px auto}}
-.others{display:flex;gap:6px;flex-wrap:wrap}
-.others button{background:transparent;border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:12.5px;color:var(--muted)}
-.others button:hover{color:var(--ink);border-color:#ffffff40}
-
-.stagewrap{min-width:0}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.dots{display:flex;gap:5px}
-.dots i{width:22px;height:4px;border-radius:2px;background:var(--line)}
-.dots i.on{background:var(--accent)}
-.dots i.done{background:#e9b24a77}
-.count{font-family:var(--mono);font-size:12px;color:var(--dim)}
-.frame{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#050506}
-.frame.browser{padding-top:30px}
-.frame.browser::before{content:"";position:absolute;inset:0 0 auto;height:30px;background:#18181a;border-bottom:1px solid var(--line)}
-.frame.browser::after{content:"";position:absolute;top:11px;left:14px;width:8px;height:8px;border-radius:50%;background:#ffffff26;box-shadow:14px 0 0 #ffffff26,28px 0 0 #ffffff26}
-.frame .url{position:absolute;top:6px;left:50%;transform:translateX(-50%);height:18px;line-height:18px;font-size:11px;color:var(--dim);background:#0e0e0f;border-radius:6px;padding:0 14px;z-index:1;font-family:var(--mono);white-space:nowrap;max-width:60%;overflow:hidden;text-overflow:ellipsis}
-.vp{position:relative;overflow:hidden}
-.canvas{position:relative;transform-origin:50% 50%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
-.canvas img{display:block;width:100%;height:auto;user-select:none}
-.canvas.phone{max-width:340px;margin:18px auto;border-radius:28px;overflow:hidden;border:8px solid #1e1e20}
-.canvas.portrait{max-width:330px;margin:18px auto;border-radius:16px;overflow:hidden}
-.spot{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 0 #e9b24acc;animation:beacon 1.6s infinite;cursor:pointer;padding:0;z-index:3}
-.spot:hover{transform:scale(1.15)}
-@keyframes beacon{0%{box-shadow:0 0 0 0 #e9b24acc}80%{box-shadow:0 0 0 18px #e9b24a00}100%{box-shadow:0 0 0 0 #e9b24a00}}
-.ring{position:absolute;border:2px solid var(--accent);border-radius:10px;box-shadow:0 0 0 9999px #0000008c;pointer-events:none;z-index:2;transition:all .5s}
-.tip{position:absolute;z-index:4;width:300px;max-width:calc(100% - 24px);background:#fbf8f1;color:#1c1b19;border-radius:12px;padding:14px 16px;box-shadow:0 12px 40px #0009;font-size:14px;line-height:1.6}
-.tip b{display:block;font-size:15px;margin-bottom:4px}
-.tip .acts{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
-.tip .acts span{font-family:var(--mono);font-size:11px;color:#8a8478}
-.tip .nx{background:#1c1b19;color:#fbf8f1;border:0;border-radius:999px;padding:6px 14px;font-weight:700;font-size:13px}
-.tip .pv{background:transparent;border:0;color:#6b665c;font-size:13px;padding:6px 4px}
-@media (max-width:760px){.tip{position:static;width:auto;max-width:none;margin:10px 0 0;box-shadow:none;border-radius:12px}}
-.ctrls{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
-.cap{font-size:12.5px;color:var(--dim)}
-
-/* 自定义步骤面板 */
-.panel{padding:24px;display:grid;gap:16px}
-.panel h3{font-family:var(--serif);font-size:22px;margin:0}
-.panel p{margin:0;color:var(--soft)}
-.flow{display:flex;flex-wrap:wrap;gap:6px}
-.flow span{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13.5px;background:var(--solid2)}
-.flow span:nth-child(n+5){border-color:#e9b24a55}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-@media (max-width:640px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.stat{background:var(--solid2);border:1px solid var(--line2);border-radius:10px;padding:12px}
-.stat b{display:block;font-family:var(--mono);font-size:22px}
-.stat span{font-size:12.5px;color:var(--muted)}
-video{display:block;width:100%;max-width:330px;margin:0 auto;border-radius:12px;background:#000}
-.cta{padding:40px 28px;text-align:center;display:grid;gap:14px;justify-items:center}
-.cta h3{font-family:var(--disp);font-weight:400;font-size:clamp(32px,4.5vw,48px);line-height:1.05;margin:0}
-.cta h3 em{color:var(--accent)}
+.note{font-size:13px;color:var(--muted)}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(40px,6.5vw,72px);line-height:1.02;margin:40px 0 14px;text-wrap:balance}
+h1 em{color:var(--accent)}
+.lede{color:var(--soft);font-size:17px;max-width:60ch;margin:0}
+h2{font-family:var(--serif);font-size:24px;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 18px;max-width:62ch}
+section{margin-top:56px}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.flow{grid-template-columns:1fr 1fr}}
+.st{background:var(--solid);border:1px solid var(--line);border-radius:14px;padding:16px}
+.st .n{font-family:var(--mono);font-size:12px;color:var(--dim)}
+.st b{display:block;font-size:17px;margin:2px 0 4px}
+.st .t{font-family:var(--mono);font-size:22px;color:var(--accent)}
+.st p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.case{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:760px){.case{grid-template-columns:1fr}}
+video{display:block;width:100%;max-width:340px;aspect-ratio:9/16;border-radius:16px;background:#000;border:1px solid var(--line)}
+.box{background:var(--solid);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.box h3{font-size:14px;color:var(--muted);font-weight:500;margin:0 0 10px;letter-spacing:.04em}
+.inputs{display:grid;gap:12px}
+.inputs img{width:100%;height:auto;border-radius:8px;display:block}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14.5px}
+.kv dt{color:var(--muted)}.kv dd{margin:0}
+.quote{font-size:14px;color:var(--soft);border-left:2px solid var(--accent);padding-left:12px;margin:0}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+td{border-bottom:1px solid var(--line2);padding:8px 6px;vertical-align:top}
+td.ok{color:var(--ok);white-space:nowrap}
+td.k{color:var(--muted);white-space:nowrap}
+.cols{display:grid;gap:14px}
+.cta{margin-top:64px;text-align:center;display:grid;gap:14px;justify-items:center;padding:40px 16px;border:1px solid var(--line);border-radius:18px;background:var(--solid)}
+.cta h2{font-family:var(--disp);font-weight:400;font-size:clamp(32px,4.5vw,48px);line-height:1.05;margin:0}
+.cta h2 em{color:var(--accent)}
 .cta p{color:var(--soft);margin:0;max-width:46ch}
-.mail{font-family:var(--mono);font-size:14px;background:var(--solid2);border:1px solid var(--line);border-radius:8px;padding:6px 12px;user-select:all}
-
-/* 课程总结工具 */
-.lsk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);min-height:420px}
-@media (max-width:760px){.lsk{grid-template-columns:1fr}}
-.lsk .pane{padding:16px;min-width:0;position:relative}
-.lsk .pane+.pane{border-left:1px solid var(--line)}
-@media (max-width:760px){.lsk .pane+.pane{border-left:0;border-top:1px solid var(--line)}}
-.lsk .lab{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-bottom:8px}
-.lsk pre{margin:0;font-family:var(--mono);font-size:12.5px;line-height:1.65;white-space:pre-wrap;word-break:break-word;color:var(--soft)}
-.md{font-size:14px}
-.md h4{font-size:15px;margin:12px 0 4px}
-.md h4:first-child{margin-top:0}
-.md ol,.md ul{margin:0;padding-left:20px}
-.ts{font-family:var(--mono);font-size:12px;color:var(--info);background:none;border:0;border-bottom:1px dotted currentColor;padding:0}
-.ts.bad{color:var(--bad)}
-.player{margin-top:14px;background:var(--solid2);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;font-size:12.5px;display:grid;gap:6px}
-.track{height:6px;background:var(--line);border-radius:3px;position:relative}
-.track s{position:absolute;top:0;height:100%;background:#ffffff1f}
-.track i{position:absolute;top:-4px;width:14px;height:14px;border-radius:50%;background:var(--accent);transform:translateX(-50%);transition:left .4s}
-.report{margin-top:12px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;display:grid;gap:4px}
-.report .x{color:var(--bad)}.report .v{color:var(--ok)}
-.hl{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
-.foot{margin-top:28px;border-top:1px solid var(--line);padding-top:14px;color:var(--dim);font-size:12.5px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:9px 20px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;gap:6px;cursor:pointer;font-family:inherit}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid #ffffff33;font-weight:500}
+.mail{font-family:var(--mono);font-size:14px;background:var(--solid2);border:1px solid var(--line);border-radius:8px;padding:7px 12px;user-select:all}
+.foot{margin-top:40px;border-top:1px solid var(--line);padding-top:14px;color:var(--dim);font-size:13px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="top">
     <a class="brand" href="./">Cam Zhou<i>.</i></a>
-    <span class="note">引导式演示 · 截图来自去品牌的展示模式，数据是程序生成的演示数据</span>
+    <span class="note">演示里的口播、文案、素材都是虚构的</span>
   </div>
 
-  <section class="intro" id="intro">
-    <h1>你想先看<em>哪一个</em>？</h1>
-    <p>每条演示 2 分钟左右，跟着亮点一步步点下去。随时可以换另一条。</p>
-    <div class="paths" id="paths"></div>
-  </section>
+  <h1>给我素材，<em>当场出片</em></h1>
+  <p class="lede">你给一段口播音频、一份文案和几张素材，我按自己做号用的同一套流程，做出一条带字幕、配乐的 4K 讲解视频。下面是一次完整的演示。</p>
 
-  <section class="demo" id="demo" hidden>
-    <aside class="side">
-      <button class="back" type="button" id="back">← 换一条演示</button>
-      <div><h2 id="dTitle"></h2><p class="sub" id="dSub"></p></div>
-      <ol class="chap" id="chap"></ol>
-      <div><div class="note" style="margin-bottom:6px">也可以看</div><div class="others" id="others"></div></div>
-    </aside>
-    <div class="stagewrap">
-      <div class="bar"><div class="dots" id="dots"></div><span class="count" id="count"></span></div>
-      <div id="stage"></div>
-      <div class="ctrls"><span class="cap" id="cap">点亮着的圆点，或者按 → 键继续</span><div style="display:flex;gap:8px"><button class="btn ghost" type="button" id="prev">上一步</button><button class="btn" type="button" id="next">下一步</button></div></div>
+  <section>
+    <h2>流程</h2>
+    <p class="sub">先出一版合格的初稿，再按我做号的标准一镜一镜打磨，最后出 4K。时间主要花在打磨上。</p>
+    <div class="flow">
+      <div class="st"><span class="n">1</span><b>收素材</b><span class="t">2 分钟</span><p>音频、文案、品牌色、要强调的词、图片或视频</p></div>
+      <div class="st"><span class="n">2</span><b>出初稿</b><span class="t">约 40 秒</span><p>转写对时间、切分镜、配乐、渲染、自检，一条命令跑完</p></div>
+      <div class="st"><span class="n">3</span><b>打磨</b><span class="t">20–40 分钟</span><p>逐镜调整镜头和大字，重点镜头单独精修</p></div>
+      <div class="st"><span class="n">4</span><b>出 4K 定稿</b><span class="t">约 2 分钟</span><p>成片、封面、字幕文件、交付单</p></div>
     </div>
   </section>
 
-  <div class="foot"><span>演示版 · 截图和数据都来自展示模式，不对应任何真实经营数据。</span><a href="./">← 回作品集</a></div>
+  <section>
+    <h2>演示一：模拟甲方给的素材</h2>
+    <p class="sub">一个虚构的「示例安全课堂」，要给员工做一条一分钟以内的密码安全科普。</p>
+    <div class="case">
+      <video src="img/demo-client.mp4" poster="img/demo-client.jpg" controls playsinline preload="metadata"></video>
+      <div class="cols">
+        <div class="box inputs"><h3>甲方给的</h3>
+          <dl class="kv"><dt>口播</dt><dd>33 秒录音</dd><dt>文案</dt><dd>7 句，和录音一致</dd><dt>品牌色</dt><dd>橙色</dd><dt>要强调的词</dt><dd>同一个密码、撞库、密码管理器、两步验证</dd></dl>
+          <img src="img/demo-inputs.jpg" alt="甲方给的 7 张物件图：锁、钥匙、浏览器窗口、电脑等" loading="lazy">
+          <p class="quote">「给员工看的安全小科普，一分钟以内，语气轻松，不要吓人。」</p>
+        </div>
+        <div class="box"><h3>交付前自动检查</h3>
+          <table>
+            <tr><td class="k">字幕</td><td>以文案为准，按录音逐字对时间</td><td class="ok">✓</td></tr>
+            <tr><td class="k">响度</td><td>-16.1 LUFS（平台常用 -16）</td><td class="ok">✓</td></tr>
+            <tr><td class="k">峰值</td><td>-1 dBFS，不爆音</td><td class="ok">✓</td></tr>
+            <tr><td class="k">配乐</td><td>成片重新转写，和文案相似度 0.96，配乐没有盖住人声</td><td class="ok">✓</td></tr>
+            <tr><td class="k">节奏</td><td>平均 3.9 秒换一个画面，最长 6.3 秒</td><td class="ok">✓</td></tr>
+            <tr><td class="k">规格</td><td>2160×3840 竖版 4K</td><td class="ok">✓</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>演示二：我自己做号的标准</h2>
+    <p class="sub">同一套流程走完整版的样子：先写稿、配音，再照参考片的节奏和构图复刻画面，配乐按段落自己合成。上面那条初稿，打磨的目标就是这个水平。</p>
+    <div class="case">
+      <video src="img/demo-sample.mp4" poster="img/demo-sample.jpg" controls playsinline preload="metadata"></video>
+      <div class="cols">
+        <div class="box"><h3>这条片子怎么做的</h3>
+          <table>
+            <tr><td class="k">选题</td><td>AI 聊久了为什么会忘事（上下文窗口）</td></tr>
+            <tr><td class="k">配音</td><td>每句生成 3 个候选，用语音识别回听，挑错字最少的那条</td></tr>
+            <tr><td class="k">画面</td><td>全部用代码生成：聊天气泡、记事本、窗口列表，每个元素什么时候进、怎么动都写在规格里</td></tr>
+            <tr><td class="k">参考</td><td>第 1 镜、第 3–5 镜照参考片的进场顺序和构图做，颜色换成自己的</td></tr>
+            <tr><td class="k">配乐</td><td>自己合成：开头一层铺底，讲原理时加鼓点，结尾全进。不涉及版权</td></tr>
+            <tr><td class="k">换底</td><td>深色和浅色画面交替，不让观众看同一面墙</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>给我一个<em>标的</em></h2>
+    <p>发一条你想要的参考片，加上你的口播或文案，我按这套流程交一版，附上做法和耗时。只接远程。</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><span class="mail" id="mail">camzhou831@gmail.com</span><button class="btn" type="button" id="copy">复制邮箱</button><a class="btn ghost" href="./#contact">微信和更多联系方式</a></div>
+  </div>
+
+  <div class="foot"><span>演示素材、口播、品牌都是虚构的；口播用的是合成音色。</span><a href="./">← 回作品集</a></div>
 </div>
-
 <script>
-(function(){
-'use strict';
-const $=s=>document.querySelector(s);
-const IMG='img/';
-
-/* ---------- 三条演示 ---------- */
-const TOURS={
- system:{
-  title:'龟场管理系统',sub:'后台 + 51 页小程序，真实养殖场每天在用',who:'想做管理系统 / 小程序',thumb:IMG+'tf-home.jpg',
-  desc:'看板、审批、溯源、财务、大屏，按老板一天里会用到的顺序走一遍。',
-  steps:[
-   {ch:'一眼看全场',img:'tf-home.jpg',url:'后台 · 养殖运营总览',x:26,y:35,w:20,h:15,z:1.25,t:'打开就是这四个数',d:'在库多少只、值多少钱、这个月新增和折损。以前要对十几张表格才算得出来，现在系统按每只龟的档案自动汇总。'},
-   {ch:'一眼看全场',img:'tf-home.jpg',url:'后台 · 养殖运营总览',x:44,y:68,w:54,h:46,z:1.15,t:'12 个月的进出放在一张图里',d:'绿色是购入，蓝色是售出。哪个月压货、哪个月回款，不用翻账本。'},
-   {ch:'一眼看全场',img:'tf-home.jpg',url:'后台 · 养殖运营总览',x:33,y:22,w:15,h:4,z:1.6,t:'系统自己盯着出问题的地方',d:'龟缸满载、孵化超期、精神不振，都会变成预警。你只需要看这 6 条，不用每个池子去转。'},
-   {ch:'审批不用当面签',img:'tf-approvals.jpg',url:'后台 · 审批中心',x:38,y:32,w:36,h:8,z:1.3,t:'现场报上来的单子都在这',d:'饲养员在手机上报折损、提费用，后台生成审批单，只数、金额、经手人都带着。'},
-   {ch:'审批不用当面签',img:'tf-approvals.jpg',url:'后台 · 审批中心',x:94.4,y:32.6,w:5,h:6,z:1.3,t:'点「处理」就批完了',d:'批完结果用微信消息推回给提交的人。折损单通过后，那只龟的档案自动改状态，库存跟着变。'},
-   {ch:'员工在现场录',img:'tf-home-mobile.jpg',phone:true,x:56,y:94.5,w:20,h:5,z:1,t:'员工端是小程序',d:'在池子边拍照巡检、记喂食、报问题，不用回办公室。和后台用同一套数据，提交完老板那边马上能看到。'},
-   {ch:'每只龟能追到源头',img:'tf-trace.jpg',url:'客户扫码看到的页面',x:50,y:12,w:16,h:8,z:1.2,t:'每只龟一份档案',d:'客户扫龟身上的码，就能看到品种、照片、入场时间和体检记录。苗子还能追到是哪对种龟产的。'},
-   {ch:'账自动算好',img:'tf-dashboard-finance.jpg',url:'后台 · 财务看板',x:83,y:25,w:20,h:15,z:1.3,t:'利润不用月底再算',d:'售出减购入减支出，系统按月、按品种自动核算，资金账户余额也在同一页。'},
-   {ch:'投到大屏上',img:'tf-screen.jpg',url:'数据大屏',x:50,y:46,w:46,h:40,z:1.15,t:'场里挂一块大屏',d:'每个缸多少只、哪个缸满了标红、今天喂没喂，进门抬头就看到。'},
-   {ch:'下一步',cta:'system'}
-  ]},
- video:{
-  title:'视频出片流程',sub:'3 个账号在用，约 20 条 4K 成片',who:'想做讲解视频 / 短视频内容',thumb:IMG+'vd-1.jpg',
-  desc:'先看成片，再拆开看它是怎么一步步做出来的。',
-  steps:[
-   {ch:'先看成片',video:'vd-clip.mp4',t:'这是一期成片的开头 22 秒',d:'画面全部是写代码生成的，字幕和配音逐字对齐。可以点开声音。'},
-   {ch:'开头的钩子',img:'vd-1.jpg',portrait:true,x:50,y:14,w:72,h:10,z:1.25,t:'第一帧就给一个具体数字',d:'不铺垫，直接抛「十万多个」，让人想知道后面发生了什么。'},
-   {ch:'数据画出来',img:'vd-1.jpg',portrait:true,x:50,y:47,w:90,h:46,z:1.1,t:'一万个小方块是算出来的',d:'数据可视化用代码画，改一个数字整屏跟着变。换选题不用重做画面。'},
-   {ch:'重点怎么标',img:'vd-3.jpg',portrait:true,x:50,y:13.4,w:70,h:6.5,z:1.3,t:'这一步的重点用琥珀色',d:'文件卡片按镜头规格逐个弹入，当前讲到的那张高亮。颜色、时长、缓动都写在规格里。'},
-   {ch:'字幕',img:'vd-3.jpg',portrait:true,x:50,y:74,w:80,h:6,z:1.25,t:'字幕和关键词同色',d:'字幕从转写自动对齐时间轴，关键词跟画面里的数字用同一个颜色。'},
-   {ch:'整条流程',panel:'flow',t:'九个固定步骤',d:'每一步都有产出和验收标准，成片前自动检查响度、字幕位置和口播对稿。'},
-   {ch:'下一步',cta:'video'}
-  ]},
- course:{
-  title:'课程总结工具',sub:'开源 · Mac + Windows · 中英双语',who:'想把 AI 接进流程',thumb:'',
-  desc:'把一节录播变成能点回原片的笔记，重点是：时间戳不会是编的。',
-  steps:[
-   {ch:'输入',lsk:'input',t:'先在本机转写',d:'录音在你自己电脑上转成字幕，不用上传。这是仓库自带的两分钟合成示例讲座。'},
-   {ch:'输出',lsk:'output',t:'交给你自己在用的 AI 写总结',d:'ChatGPT、Claude、Gemini 都行。出来的是带时间戳、考点和复习卡的笔记。'},
-   {ch:'点回原片',lsk:'jump',t:'点时间戳，跳到那一秒',d:'复习时看到哪条不懂，点一下就回到录播里老师讲这句话的地方。'},
-   {ch:'自动核对',lsk:'check',t:'AI 编的时间戳会被抓出来',d:'直接让 AI 总结，时间戳经常是编的。写完自动核对：超出录播时长、落在静音段的，直接报出来。'},
-   {ch:'下一步',cta:'course'}
-  ]}
-};
-const ORDER=['system','video','course'];
-
-/* ---------- 选路线 ---------- */
-$('#paths').innerHTML=ORDER.map(k=>{const t=TOURS[k];const n=t.steps.length-1;
-  return `<button class="path" type="button" data-k="${k}"><div class="thumb" style="${t.thumb?`background-image:url('${t.thumb}');${k==='video'?'background-position:center 20%':''}`:'background:linear-gradient(135deg,#1a1a1c,#0b0b0c)'}">${t.thumb?'':`<div style="height:100%;display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--muted);padding:16px;text-align:left"><span>[00:22] 循环为什么难测<br>[01:00] 素路径<br><span style="color:var(--bad)">[03:10] 超出录播时长 ✗</span></span></div>`}</div>
-   <div class="tx"><span class="who">${t.who}</span><span class="t">${t.title}</span><span class="d">${t.desc}</span><span class="meta">${n} 步 · 约 ${Math.max(1,Math.round(n*15/60))} 分钟</span></div></button>`}).join('');
-document.querySelectorAll('.path').forEach(b=>b.onclick=()=>open(b.dataset.k,0,true));
-
-/* ---------- 演示播放器 ---------- */
-let tour=null,key='',idx=0,seen=new Set();
-function open(k,i,push){
-  if(!TOURS[k]){showIntro();return}
-  key=k;tour=TOURS[k];idx=i||0;seen=new Set();
-  $('#intro').hidden=true;$('#demo').hidden=false;
-  $('#dTitle').textContent=tour.title;$('#dSub').textContent=tour.sub;
-  $('#others').innerHTML=ORDER.filter(x=>x!==k).map(x=>`<button type="button" data-k="${x}">${TOURS[x].title}</button>`).join('');
-  document.querySelectorAll('#others button').forEach(b=>b.onclick=()=>open(b.dataset.k,0,true));
-  if(push){try{history.replaceState(null,'','#'+k)}catch(e){}}
-  render();window.scrollTo({top:0,behavior:'smooth'});
-}
-function showIntro(){$('#intro').hidden=false;$('#demo').hidden=true;try{history.replaceState(null,'',location.pathname)}catch(e){}}
-$('#back').onclick=showIntro;
-
-function chapters(){
-  const chs=[];tour.steps.forEach((s,i)=>{if(!chs.length||chs[chs.length-1].ch!==s.ch)chs.push({ch:s.ch,start:i,end:i});else chs[chs.length-1].end=i});
-  $('#chap').innerHTML=chs.map(c=>{const cur=idx>=c.start&&idx<=c.end;const done=!cur&&idx>c.end;
-    return `<li class="${cur?'cur':''} ${done?'done':''}"><button type="button" data-i="${c.start}" class="${cur?'cur':''}"><span class="ck">✓</span><span>${c.ch}</span></button></li>`}).join('');
-  document.querySelectorAll('#chap button').forEach(b=>b.onclick=()=>{idx=+b.dataset.i;render()});
-}
-function render(){
-  const s=tour.steps[idx];const n=tour.steps.length;seen.add(idx);
-  chapters();
-  $('#dots').innerHTML=tour.steps.map((_,i)=>`<i class="${i===idx?'on':i<idx?'done':''}"></i>`).join('');
-  $('#count').textContent=`${idx+1} / ${n}`;
-  $('#prev').disabled=idx===0;
-  $('#next').hidden=idx===n-1;
-  $('#cap').textContent=s.cta?'演示结束 · 可以换一条继续看':(s.img?'点亮着的圆点，或者按 → 键继续':'按「下一步」或 → 键继续');
-  const st=$('#stage');
-  if(s.img) st.innerHTML=shot(s);
-  else if(s.video) st.innerHTML=`<div class="frame"><div class="panel"><div><h3>${s.t}</h3><p>${s.d}</p></div><video src="${IMG+s.video}" controls muted autoplay playsinline loop poster="${IMG}vd-1.jpg"></video></div></div>`;
-  else if(s.panel==='flow') st.innerHTML=flowPanel(s);
-  else if(s.lsk) st.innerHTML=lskPanel(s);
-  else if(s.cta) st.innerHTML=ctaPanel(s.cta);
-  if(s.img) placeShot(s);
-  if(s.lsk) lskBind(s.lsk);
-  if(s.cta) ctaBind();
-}
-function shot(s){
-  const cls=s.phone?'phone':s.portrait?'portrait':'';
-  return `<div class="frame ${cls?'':'browser'}">${cls?'':`<span class="url">${s.url||''}</span>`}
-   <div class="vp"><div class="canvas ${cls}" id="cv"><img src="${IMG+s.img}" alt="${s.t}" id="shot">
-    <div class="ring" style="left:${s.x-s.w/2}%;top:${s.y-s.h/2}%;width:${s.w}%;height:${s.h}%"></div>
-    <button class="spot" type="button" aria-label="下一步：${s.t}" style="left:${spotX(s)}%;top:${s.y}%" id="spot"></button></div></div>
-   <div class="tip" id="tip"><b>${s.t}</b>${s.d}<div class="acts"><span>${idx+1} / ${tour.steps.length}</span><span style="display:flex;gap:4px">${idx?'<button class="pv" type="button" id="tpv">上一步</button>':''}<button class="nx" type="button" id="tnx">下一步 →</button></span></div></div></div>`;
-}
-// 圆点放在高亮框右边缘，不挡住框里的内容；太靠右就放左边缘
-function spotX(s){const r=s.x+s.w/2;return r>96?Math.max(2,s.x-s.w/2):r}
-function placeShot(s){
-  const cv=$('#cv'),tip=$('#tip'),img=$('#shot');
-  $('#spot').onclick=next;$('#tnx').onclick=next;const pv=$('#tpv');if(pv)pv.onclick=prev;
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  cv.style.transformOrigin=`${s.x}% ${s.y}%`;cv.style.transform='scale(1)';
-  const place=()=>{
-    if(innerWidth<=760){tip.style.left=tip.style.top='';return}
-    const fr=cv.parentElement.getBoundingClientRect(),cr=cv.getBoundingClientRect();
-    const sp=$('#spot').getBoundingClientRect();
-    const px=sp.left-fr.left+sp.width/2,py=sp.top-fr.top+sp.height/2;
-    const tw=tip.offsetWidth,th=tip.offsetHeight,W=fr.width,H=fr.height;
-    let left=px+24,top=py-th/2;
-    if(left+tw>W-12)left=px-24-tw;
-    if(left<12){left=Math.min(Math.max(12,px-tw/2),W-tw-12);top=py+28;if(top+th>H-12)top=py-28-th}
-    top=Math.min(Math.max(top,12),Math.max(12,H-th-12));
-    tip.style.left=left+'px';tip.style.top=top+'px'};
-  const go=()=>{if(!reduce&&s.z&&s.z>1){requestAnimationFrame(()=>{cv.style.transform=`scale(${s.z})`;setTimeout(place,720)})}place()};
-  if(img.complete)go();else img.onload=go;
-  window.onresize=place;
-}
-function flowPanel(s){
-  const steps=['选题','对标拆稿','写稿和验收','配音','做画面','自检','成片和封面','发布包','数据复盘'];
-  return `<div class="frame"><div class="panel"><div><h3>${s.t}</h3><p>${s.d}</p></div>
-   <div class="flow">${steps.map((x,i)=>`<span>${i+1} · ${x}</span>`).join('')}</div>
-   <div class="stats"><div class="stat"><b>3</b><span>个账号用同一套流程</span></div><div class="stat"><b>~20</b><span>条 4K 成片</span></div><div class="stat"><b>~5h</b><span>单期耗时</span></div><div class="stat"><b>0</b><span>版权素材：配乐音效自己合成</span></div></div>
-   <p style="font-size:13px;color:var(--muted)">每期交付：4K 成片（带字幕 / 不带）、三种比例封面、发布文案、交付单。发布后按 1 天、3 天、7 天复盘，结论写回下一期的标准。</p></div></div>`;
-}
-
-/* ---------- 课程总结工具 ---------- */
-const SRT=`1
-00:00:22,000 --> 00:00:30,500
-今天先说为什么循环特别难测，因为循环体
-可能执行零次、一次或者很多次。
-
-2
-00:01:00,000 --> 00:01:12,000
-接下来是素路径，就是不能再延长、
-又不重复经过节点的简单路径。
-
-3
-00:01:35,000 --> 00:01:44,000
-对了，下周的小测就考今天这套课件。`;
-const DUR=120,SIL=[45,58];
-const f2=s=>`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
-const tsb=(s,cls)=>`<button type="button" class="ts ${cls||''}" data-s="${s}">[${f2(s)}]</button>`;
-function lskPanel(s){
-  const mode=s.lsk,bad=mode==='check';
-  const out=`<div class="md" id="md"><h4 style="color:var(--accent)">⚠ 课程通知</h4><ol><li>下周小测考这套课件 ${tsb(95)}</li></ol>
-   <h4>核心要点</h4><ol><li>循环难测：循环体可能执行 0 次、1 次或多次 ${tsb(22)}</li><li>素路径：不能再延长、不重复节点的简单路径 ${tsb(60)}</li>${bad?`<li>老师补充：覆盖率怎么取舍 ${tsb(50,'bad')}</li>`:''}</ol>
-   <h4>章节时间线</h4><ul><li>${tsb(22)} 循环为什么难测</li><li>${tsb(60)} 素路径</li>${bad?`<li>${tsb(190,'bad')} 课后答疑</li>`:''}</ul>
-   <h4>复习卡</h4><ul><li>素路径的定义？ → 不能再延长、不重复节点的简单路径</li></ul></div>`;
-  const player=`<div class="player" id="player"><div style="display:flex;justify-content:space-between"><span>录播 · DEMO1001 第一周</span><span class="ts" style="border:0;color:var(--soft)" id="pos">00:00 / 02:00</span></div><div class="track"><s style="left:${SIL[0]/DUR*100}%;width:${(SIL[1]-SIL[0])/DUR*100}%"></s><i id="head" style="left:0"></i></div><span style="color:var(--dim)">灰色一段是静音</span></div>`;
-  const report=bad?`<div class="report" id="report"><b>自动核对 · 7 个时间戳</b><span class="x">✗ [00:50] 落在静音段，这一秒没人说话</span><span class="x">✗ [03:10] 超出录播时长 02:00</span><span class="v">✓ 其余 5 个都对得上原片</span></div>`:'';
-  const left=mode==='input'?`<div class="lab">输入 · 字幕.srt（合成示例）</div><pre id="srtbox">${SRT}</pre>`:`<div class="lab">录播</div>${player}${report}`;
-  const right=mode==='input'?`<div class="lab">输出</div><div style="color:var(--dim);font-size:14px;display:grid;place-items:center;height:80%">下一步生成 →</div>`:`<div class="lab">输出 · 总结/DEMO1001/第一周.md</div>${out}`;
-  return `<div class="frame"><div class="lsk"><div class="pane">${left}</div><div class="pane">${right}</div></div>
-   <div class="tip" id="tip" style="position:static;width:auto;max-width:none;margin:0;border-radius:0"><b>${s.t}</b>${s.d}${mode==='jump'?' <span style="color:#8a6a1c">试试点右边任意一个蓝色时间戳。</span>':''}</div></div>`;
-}
-function lskBind(mode){
-  const box=mode==='input'?$('#srtbox'):mode==='output'?$('#md'):mode==='jump'?$('#player'):$('#report');
-  if(box)box.classList.add('hl');
-  document.querySelectorAll('#md .ts').forEach(b=>b.onclick=()=>{const s=+b.dataset.s;const h=$('#head');if(!h)return;h.style.left=Math.min(100,s/DUR*100)+'%';$('#pos').textContent=`${f2(Math.min(s,DUR))} / 02:00`;
-    if(s>DUR)$('#pos').textContent='超出录播时长，跳不过去'});
-}
-
-/* ---------- 最后一步 ---------- */
-function ctaPanel(k){
-  const m={system:['想要一套<em>这样的系统</em>？','先聊你现在怎么管、哪里最费事。我会先给能点的页面原型，确认范围后再报价和工期。'],
-   video:['给我一个<em>标的</em>','发一条你想要的参考片，我按这套流程交一版，附上做法和耗时。只接远程。'],
-   course:['想把 AI 接进<em>你的流程</em>？','会议纪要、培训录像、资料问答，都可以照这个思路做：AI 负责写，程序负责核对。']}[k];
-  return `<div class="frame"><div class="cta"><h3>${m[0]}</h3><p>${m[1]}</p>
-   <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><span class="mail" id="mail">camzhou831@gmail.com</span><button class="btn" type="button" id="copy">复制邮箱</button><a class="btn ghost" href="./#contact">微信和更多联系方式</a></div>
-   <div class="others" style="justify-content:center;margin-top:6px">${ORDER.filter(x=>x!==k).map(x=>`<button type="button" data-k="${x}">接着看：${TOURS[x].title}</button>`).join('')}</div></div></div>`;
-}
-function ctaBind(){
-  $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText('camzhou831@gmail.com');$('#copy').textContent='已复制'}catch(e){const r=document.createRange();r.selectNodeContents($('#mail'));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);$('#copy').textContent='已选中，按 Ctrl+C'}};
-  document.querySelectorAll('.cta .others button').forEach(b=>b.onclick=()=>open(b.dataset.k,0,true));
-}
-
-function next(){if(idx<tour.steps.length-1){idx++;render()}}
-function prev(){if(idx>0){idx--;render()}}
-$('#next').onclick=next;$('#prev').onclick=prev;
-document.addEventListener('keydown',e=>{if($('#demo').hidden||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
-window.addEventListener('hashchange',()=>{const k=location.hash.slice(1);if(TOURS[k])open(k,0,false)});
-
-const h=location.hash.slice(1);
-if(TOURS[h])open(h,0,false);else if(h==='lecture')open('course',0,false);
-})();
+document.getElementById('copy').onclick=async function(){try{await navigator.clipboard.writeText('camzhou831@gmail.com');this.textContent='已复制'}catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);this.textContent='已选中，按 Ctrl+C'}};
 </script>
 </body>
 </html>
