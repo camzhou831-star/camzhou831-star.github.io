@@ -303,40 +303,24 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
   </article>
 
   <article class="case" id="toolkit">
-    <div class="chead rv"><div><div class="no">03</div><div class="kind">AI 工作流 · 录音录像总结</div><h2>课程总结工具</h2></div><p>把两小时的录播，变成能点回原片的复习笔记。</p></div>
-    <div class="split rv">
-      <div class="txt">
-        <div><h3>原来的问题</h3><p>录播课太长，复习时找不到重点在哪一分钟。直接让 AI 总结，时间戳经常是编的。</p></div>
-        <div><h3>做了什么</h3><p>在本机转写录音，识别幻灯片画面并和课件页码对齐，再交给你自己在用的 AI 写总结。写完自动核对，时间戳超出录播时长或落在静音段会直接报出来。</p></div>
-        <div><h3>我负责</h3><p>全部设计和开发。给朋友做过多轮真人测试，按反馈修过 Mac 和 Windows 的问题。</p></div>
-        <ul class="proof"><li>开源</li><li>69 个测试 · CI</li><li>Mac + Windows</li><li>中英双语</li><li>Claude Code · Codex · Gemini</li></ul>
-        <p class="stack">Python · whisper.cpp · ffmpeg · tesseract · Claude Code skill</p>
-        <p class="note">下一版：从录播课扩展到会议纪要、培训录像和个人复盘。</p>
-        <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">在 GitHub 上看代码</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest">下载</a></div>
+    <div class="chead rv"><div><div class="no">03</div><div class="kind">AI 工作流 · 本地网页应用</div><h2>课程总结工作台</h2></div><p>贴一个课程链接，出一份能点回原片的复习总结。</p></div>
+    <div data-gallery class="rv">
+      <div class="tabs" role="group" aria-label="课程总结工作台截图">
+        <button aria-pressed="true" data-src="img/lt-summary.jpg" data-c="总结页：四步进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒">总结页</button>
+        <button aria-pressed="false" data-src="img/lt-home.jpg" data-c="新建：贴 YouTube、Twitch、B 站或学校录播链接，也可以拖文件进来">新建</button>
+        <button aria-pressed="false" data-src="img/lt-library.jpg" data-c="资料库：所有总结，按来源和状态筛选">资料库</button>
       </div>
-      <div>
-        <div class="win"><div class="bar"><i></i><i></i><i></i><span>总结/DEMO1001/第一周.md</span></div>
-<pre class="sample"><b># DEMO1001 第一周 — 循环测试与素路径</b>
-
-<b>## 课程通知</b>（01:30–01:46）
-1. 下周 quiz 考这套课件（01:35，p6）
-
-<b>## 核心要点</b>
-1. 循环为什么难测（00:22–00:42，p2）
-   循环体可以执行 0 次、1 次或多次……
-3. 素路径（01:00–01:18，p4）
-   不能再延长而不重复节点的简单路径……
-
-<b>## 章节时间线</b>
-- <u>[00:22]</u> 循环为什么难测（p2）  ← 点击回到录播这一秒
-- <u>[01:00]</u> 素路径（p4）
-
-<b>## 复习卡</b>
-- 简单路径的定义？:: 不重复访问任何节点的路径。</pre>
-        </div>
-        <p class="shotcap">摘自仓库自带的合成示例讲座。示例内容是程序生成的，不含任何真实课程。</p>
-      </div>
+      <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>总结页</span></div><img loading="lazy" decoding="async" src="img/lt-summary.jpg" alt="总结页：四步进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒"></div>
+      <p class="shotcap" data-cap>总结页：四步进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒</p>
     </div>
+    <div class="cols rv">
+      <div><h3>原来的问题</h3><p>录播课太长，复习时找不到重点在哪一分钟。直接让 AI 总结，时间戳经常是编的；而且大多数学生只有 ChatGPT 或 Claude 会员，没有 API Key。</p></div>
+      <div><h3>做了什么</h3><p>贴链接后先找现成字幕，没有就在本机转写；交给你已经登录的 Claude Code 或 Codex（也可以用 API）写总结。写完逐条核对时间戳，不对就让 AI 改一轮。点任意时间戳，直接跳回视频那一秒。</p></div>
+      <div><h3>我负责</h3><p>全部设计和开发：后端和任务队列、拿字幕和转写的流程、三种 AI 接入、中英双语界面、新手检查和一键安装脚本。</p></div>
+    </div>
+    <ul class="proof rv"><li>开源</li><li>有会员就不用 API Key</li><li>YouTube · Twitch · B 站 · 学校录播</li><li>中英双语</li><li>20 个测试</li></ul>
+    <p class="stack">Python · FastAPI · SQLite · yt-dlp · whisper.cpp · Claude Code / Codex</p>
+    <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">在 GitHub 上看代码</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/blob/main/README.zh.md">上手说明</a><span class="note">截图里的总结来自公开课（MIT OpenCourseWare、3Blue1Brown、李宏毅机器学习）。</span></div>
   </article>
 
   <article class="case" id="jizhang">
@@ -381,7 +365,7 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
     <div><h3>企业官网和落地页</h3><p>产品介绍、公司官网、活动页，手机和电脑上都好看。</p><a href="#turtle">做过：龟场产品介绍页、本站</a></div>
     <div><h3>数据看板和大屏</h3><p>把经营数据做成老板一眼看得懂的图，可以投屏。</p><a href="#turtle">做过：7 个经营看板、数据大屏</a></div>
     <div><h3>后端接口和数据库</h3><p>接口设计、数据库建模、多租户隔离，对接微信和云存储，部署上线。</p><a href="#more">做过：87 个接口、多租户平台</a></div>
-    <div><h3>AI 工具和自动化</h3><p>把大模型接进你的流程：资料问答、录音转写和总结、重复工作自动化。</p><a href="#toolkit">做过：课程总结工具、AI 工作台</a></div>
+    <div><h3>AI 工具和自动化</h3><p>把大模型接进你的流程：资料问答、录音转写和总结、重复工作自动化。</p><a href="#toolkit">做过：课程总结工作台、AI 工作台</a></div>
     <div><h3>桌面软件和浏览器插件</h3><p>不联网也能用的 Windows 和 macOS 软件，Chrome 和 Edge 插件。</p><a href="#jizhang">做过：简账、网页剪藏插件</a></div>
     <div><h3>讲解视频</h3><p>产品介绍、知识科普、课程配套动画，交付 4K 成片和封面。</p><a href="#video">做过：约 20 条成片</a></div>
     <div><h3>企业 AI 落地咨询</h3><p>梳理哪些岗位适合先用 AI，出培训和试点方案，陪着把第一个试点跑起来。</p><a href="#more">配套：成套方案文档和课件</a></div>
