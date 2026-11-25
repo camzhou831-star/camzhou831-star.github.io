@@ -211,6 +211,23 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
 .chead h2{line-height:1.06}
 .state{max-width:24em}
 .end h2{line-height:1.08}
+
+.dl-dlg{max-width:min(620px,calc(100vw - 32px));width:100%;padding:0;border:1px solid var(--line);border-radius:18px;background:var(--solid);color:var(--ink);box-shadow:0 30px 80px #000a}
+.dl-dlg::backdrop{background:#000b;backdrop-filter:blur(4px)}
+.dl-dlg .dl-in{padding:26px 26px 20px;max-height:min(80vh,760px);overflow:auto}
+.dl-dlg h3{margin:0 0 4px;font-size:20px}
+.dl-dlg .dl-sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+.dl-dlg h4{margin:18px 0 8px;font-size:13px;letter-spacing:.08em;color:var(--accent);font-family:var(--mono);font-weight:500}
+.dl-dlg ul,.dl-dlg ol{margin:0;padding-left:20px;font-size:14.5px;line-height:1.7;color:var(--soft)}
+.dl-dlg li+li{margin-top:4px}
+.dl-dlg .env{display:flex;flex-wrap:wrap;gap:8px}
+.dl-dlg .env span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--soft)}
+.dl-dlg .warn{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:#e9b24a1f;color:var(--accent);font-size:14px}
+.dl-dlg .rec{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--accent);color:var(--accent-ink);vertical-align:1px}
+.dl-dlg a{color:var(--accent)}
+.dl-dlg code{font-family:var(--mono);font-size:12.5px;background:var(--line2);padding:1px 6px;border-radius:6px}
+.dl-dlg .dl-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.btn.sm.rec-os{border-color:var(--accent);color:var(--accent)}
 </style>
 
 <nav class="top"><div class="wrap"><div class="pill">
@@ -312,23 +329,23 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
     <div class="chead rv"><div><div class="no">03</div><div class="kind">AI workflow · Local web app</div><h2>Lecture Workbench</h2></div><p>Paste a link, get a summary that jumps back to the exact second: lecture summaries, script breakdowns and meeting notes.</p></div>
     <div data-gallery class="rv">
       <div class="tabs" role="group" aria-label="Lecture Workbench screenshots">
-        <button aria-pressed="true" data-src="../img/lt-summary-en.jpg" data-c="Summary: four-step progress with timings, a timestamped summary, and chapters that jump back into the video">Summary</button>
+        <button aria-pressed="true" data-src="../img/lt-summary-en.jpg" data-c="Summary: progress and timing for each step, a timestamped summary, and chapters that jump back into the video">Summary</button>
         <button aria-pressed="false" data-src="../img/lt-breakdown-en.jpg" data-c="Script breakdown: a short video split sentence by sentence; segments by role on the right, with seconds, word counts and pace computed by code">Script breakdown</button>
         <button aria-pressed="false" data-src="../img/lt-meeting-en.jpg" data-c="Meeting notes: summary, decisions and action items, each tied to a timestamp">Meeting notes</button>
         <button aria-pressed="false" data-src="../img/lt-home-en.jpg" data-c="New summary: paste a YouTube, Twitch, Bilibili or lecture-capture link, pick a template, or drop in a file">New summary</button>
         <button aria-pressed="false" data-src="../img/lt-library-en.jpg" data-c="Library: every summary, filterable by source and status">Library</button>
       </div>
-      <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>Summary</span></div><img loading="lazy" decoding="async" src="../img/lt-summary-en.jpg" alt="Summary: four-step progress with timings, a timestamped summary, and chapters that jump back into the video"></div>
-      <p class="shotcap" data-cap>Summary: four-step progress with timings, a timestamped summary, and chapters that jump back into the video</p>
+      <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>Summary</span></div><img loading="lazy" decoding="async" src="../img/lt-summary-en.jpg" alt="Summary: progress and timing for each step, a timestamped summary, and chapters that jump back into the video"></div>
+      <p class="shotcap" data-cap>Summary: progress and timing for each step, a timestamped summary, and chapters that jump back into the video</p>
     </div>
     <div class="cols rv">
       <div><h3>The problem</h3><p>Lecture recordings are too long to review, and when you ask an AI to summarise one directly, the timestamps are often made up. Most students also have a ChatGPT or Claude plan rather than an API key.</p></div>
-      <div><h3>What I built</h3><p>Paste a link and it uses the site's subtitles, or transcribes the audio on your own machine. The summary is written by the Claude Code or Codex account you're already signed in to (or any API), then every timestamp is checked and the AI fixes anything off. Click a timestamp and the video jumps to that second. Besides lecture summaries it can break down a short video sentence by sentence (seconds, word counts and pace computed by code, not estimated by the AI) or write meeting notes in five formats.</p></div>
-      <div><h3>My role</h3><p>Designed and built it end to end: the backend and task queue, the subtitle and transcription pipeline, three AI integrations, three summary templates, the bilingual interface, the first-run checklist and a one-command installer.</p></div>
+      <div><h3>What I built</h3><p>Paste a link and it uses the site's subtitles, or transcribes the audio on your own machine. The summary is written by the Claude Code or Codex account you're already signed in to (or any API), then every timestamp is checked and the AI fixes anything off. Click a timestamp and the video jumps to that second. Besides lecture summaries it can break down a short video sentence by sentence (seconds, word counts and pace computed by code, not estimated by the AI) or write meeting notes in five formats. A final pass checks names of people and companies, which speech recognition often mishears: confident fixes are applied with the original transcription noted, and uncertain ones are listed for you to check. Picked the wrong template? "Reuse as…" makes another summary from the transcript you already have.</p></div>
+      <div><h3>My role</h3><p>Designed and built it end to end: the backend and task queue, the subtitle and transcription pipeline, three AI integrations, three summary templates, the bilingual interface, first-run environment checks (recommending an AI based on your time zone) and double-click installers for Mac and Windows.</p></div>
     </div>
-    <ul class="proof rv"><li>Open source</li><li>No API key with a ChatGPT or Claude plan</li><li>YouTube · Twitch · Bilibili · lecture capture</li><li>Lectures · script breakdowns · meetings</li><li>English and Chinese</li><li>25 tests</li></ul>
+    <ul class="proof rv"><li>Open source</li><li>No API key with a ChatGPT or Claude plan</li><li>YouTube · Twitch · Bilibili · lecture capture</li><li>Lectures · script breakdowns · meetings</li><li>Name checking</li><li>English and Chinese</li><li>29 tests</li></ul>
     <p class="stack">Python · FastAPI · SQLite · yt-dlp · whisper.cpp · Claude Code / Codex</p>
-    <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">View code on GitHub</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-mac.zip">Download for Mac</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-windows.zip">Download for Windows</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit#readme">Getting started</a><span class="note">Screenshots use public videos: MIT OpenCourseWare and 3Blue1Brown lectures, a public Bilibili short and GitLab's public team meetings. Meeting templates adapted from the open-source Meetily.</span></div>
+    <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">View code on GitHub</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-mac.zip" data-dl="mac">Download for Mac</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-windows.zip" data-dl="win">Download for Windows</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit#readme">Getting started</a><span class="note">Screenshots use public videos: MIT OpenCourseWare and 3Blue1Brown lectures, a public Bilibili short and GitLab's public team meetings. Meeting templates adapted from the open-source Meetily.</span></div>
   </article>
 
   <article class="case" id="jizhang">
@@ -405,6 +422,8 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
   </div>
 </div></section>
 
+<dialog id="dl-dlg" class="dl-dlg" aria-label="download"></dialog>
+
 <footer><div class="wrap"><span>Cam Zhou · November 2026</span><span>All data in screenshots is demo data</span></div></footer>
 
 <script>
@@ -431,6 +450,57 @@ if(mc){mc.addEventListener('click',function(){
   var sel=function(){var r=document.createRange();r.selectNodeContents(ma);var g=getSelection();g.removeAllRanges();g.addRange(r);mc.textContent='Selected, press Copy'};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ma.textContent).then(done,sel)}else{sel()}
 })}
+
+// 下载工作台:识别系统和时区,下载照常开始,同时弹窗说明最低要求和推荐的 AI
+(function(){
+  var L={
+ title:"Your download has started",sub:"Before you install: what this computer needs, and which AI will write the summaries.",
+ env:"Detected",os:{mac:"macOS",win:"Windows",mobile:"Phone / tablet",other:"Other OS"},tz:"Time zone",
+ wrong:function(want,have){return "You downloaded the "+want+" version, but this computer looks like "+have+". If that was a mistake, use the other button."},
+ mobile:"This tool runs on a computer. Open this page on a Mac or Windows PC to download it.",
+ req:"Minimum requirements",
+ reqMac:["macOS (Apple silicon or Intel)","An internet connection (the first run downloads tools and a 1.6 GB speech model)","About 3 GB of free disk space","Your Mac login password, which you type yourself if Homebrew needs installing"],
+ reqWin:["Windows 10 or 11, 64-bit (winget is built in)","An internet connection (the first run downloads tools and a 1.6 GB speech model)","About 3 GB of free disk space","A graphics card makes transcription faster; without one it uses the CPU","The Windows version has not been fully tested on a real PC yet; feedback welcome"],
+ ai:"AI that writes the summary (pick one)",
+ cn:"You are in UTC+8, so DeepSeek is recommended: it works directly in mainland China, pay as you go, no subscription.",
+ intl:"Recommended: use the ChatGPT or Claude subscription you already have. No API key needed.",
+ ds:'DeepSeek API key: sign up on the <a href="https://platform.deepseek.com/api_keys" target="_blank" rel="noopener">DeepSeek platform</a>, add credit, create a key and paste it into the workbench',
+ gpt:"ChatGPT Plus / Pro: the workbench walks you through installing Codex; sign in once",
+ claude:"Claude Pro / Max: the workbench walks you through installing Claude Code; sign in once",
+ rec:"Recommended",
+ steps:"Three steps to start",
+ stepsMac:["Unzip the download","Double-click <code>启动工作台.command</code> (the first time, Control-click it → Open)","It installs anything missing and opens the workbench in your browser; follow the checklist on its home page to set up the AI"],
+ stepsWin:["Unzip the download (right-click → Extract All)","Double-click <code>启动工作台.bat</code> (if a security prompt appears, choose Run / Run anyway)","It installs anything missing and opens the workbench in your browser; follow the checklist on its home page to set up the AI"],
+ check:"Once it opens, the workbench checks what this computer is missing and gives you commands to copy and run.",
+ guide:"Full guide",guideUrl:"https://github.com/camzhou831-star/lecture-summary-toolkit#readme",close:"Got it"
+};
+  var dlg=document.getElementById('dl-dlg'); if(!dlg) return;
+  var ua=navigator.userAgent, p=(navigator.userAgentData&&navigator.userAgentData.platform)||navigator.platform||'';
+  var mobile=/Android|iPhone|iPad|iPod|Mobile/i.test(ua)||(/Mac/.test(p)&&navigator.maxTouchPoints>1);
+  var os=mobile?'mobile':/Win/i.test(p+ua)?'win':/Mac/i.test(p+ua)?'mac':'other';
+  var off=-new Date().getTimezoneOffset(), utc8=off===480;
+  var tz='UTC'+(off>=0?'+':'-')+Math.floor(Math.abs(off)/60)+(Math.abs(off)%60?':'+('0'+Math.abs(off)%60).slice(-2):'');
+  try{var zn=Intl.DateTimeFormat().resolvedOptions().timeZone; if(zn) tz+=' · '+zn}catch(e){}
+  if(os==='mac'||os==='win'){var b=document.querySelector('[data-dl="'+os+'"]'); if(b) b.classList.add('rec-os')}
+  function li(a){return a.map(function(x){return '<li>'+x+'</li>'}).join('')}
+  function open(want){
+    var tag=' <span class="rec">'+L.rec+'</span>', ais=utc8?[L.ds+tag,L.gpt,L.claude]:[L.gpt+tag,L.claude+tag,L.ds];
+    var h='<div class="dl-in"><h3>'+L.title+'</h3><p class="dl-sub">'+L.sub+'</p>'
+      +'<h4>'+L.env+'</h4><div class="env"><span>'+L.os[os]+'</span><span>'+L.tz+' '+tz+'</span></div>'
+      +(os==='mobile'?'<p class="warn">'+L.mobile+'</p>':(os==='mac'||os==='win')&&os!==want?'<p class="warn">'+L.wrong(L.os[want],L.os[os])+'</p>':'')
+      +'<h4>'+L.req+'</h4><ul>'+li(want==='mac'?L.reqMac:L.reqWin)+'</ul>'
+      +'<h4>'+L.ai+'</h4><p class="dl-sub" style="margin:0 0 8px">'+(utc8?L.cn:L.intl)+'</p><ol>'+li(ais)+'</ol>'
+      +'<h4>'+L.steps+'</h4><ol>'+li(want==='mac'?L.stepsMac:L.stepsWin)+'</ol><p class="dl-sub" style="margin:10px 0 0">'+L.check+'</p>'
+      +'<div class="dl-foot"><a href="'+L.guideUrl+'" target="_blank" rel="noopener">'+L.guide+' ↗</a><button type="button" class="btn sm" data-close>'+L.close+'</button></div></div>';
+    dlg.innerHTML=h;
+    dlg.querySelector('[data-close]').onclick=function(){dlg.close()};
+    if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+  }
+  dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close()});
+  document.querySelectorAll('[data-dl]').forEach(function(a){
+    a.addEventListener('click',function(){var w=a.getAttribute('data-dl'); setTimeout(function(){open(w)},150)});   // 不拦下载,稍后弹窗
+  });
+})();
 </script>
 
 </html>

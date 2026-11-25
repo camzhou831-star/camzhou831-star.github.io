@@ -204,6 +204,23 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
   html{scroll-behavior:auto} .reel .track{animation:none}
   .js .rv{opacity:1;transform:none;transition:none}
 }
+
+.dl-dlg{max-width:min(620px,calc(100vw - 32px));width:100%;padding:0;border:1px solid var(--line);border-radius:18px;background:var(--solid);color:var(--ink);box-shadow:0 30px 80px #000a}
+.dl-dlg::backdrop{background:#000b;backdrop-filter:blur(4px)}
+.dl-dlg .dl-in{padding:26px 26px 20px;max-height:min(80vh,760px);overflow:auto}
+.dl-dlg h3{margin:0 0 4px;font-size:20px}
+.dl-dlg .dl-sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+.dl-dlg h4{margin:18px 0 8px;font-size:13px;letter-spacing:.08em;color:var(--accent);font-family:var(--mono);font-weight:500}
+.dl-dlg ul,.dl-dlg ol{margin:0;padding-left:20px;font-size:14.5px;line-height:1.7;color:var(--soft)}
+.dl-dlg li+li{margin-top:4px}
+.dl-dlg .env{display:flex;flex-wrap:wrap;gap:8px}
+.dl-dlg .env span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--soft)}
+.dl-dlg .warn{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:#e9b24a1f;color:var(--accent);font-size:14px}
+.dl-dlg .rec{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--accent);color:var(--accent-ink);vertical-align:1px}
+.dl-dlg a{color:var(--accent)}
+.dl-dlg code{font-family:var(--mono);font-size:12.5px;background:var(--line2);padding:1px 6px;border-radius:6px}
+.dl-dlg .dl-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.btn.sm.rec-os{border-color:var(--accent);color:var(--accent)}
 </style>
 
 <nav class="top"><div class="wrap"><div class="pill">
@@ -306,23 +323,23 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
     <div class="chead rv"><div><div class="no">03</div><div class="kind">AI 工作流 · 本地网页应用</div><h2>课程总结工作台</h2></div><p>贴一个链接，出一份能点回原片的总结：课程总结、对标拆稿、会议纪要三种模板。</p></div>
     <div data-gallery class="rv">
       <div class="tabs" role="group" aria-label="课程总结工作台截图">
-        <button aria-pressed="true" data-src="img/lt-summary.jpg" data-c="总结页：四步进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒">总结页</button>
+        <button aria-pressed="true" data-src="img/lt-summary.jpg" data-c="总结页：每一步的进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒">总结页</button>
         <button aria-pressed="false" data-src="img/lt-breakdown.jpg" data-c="对标拆稿：一条短视频逐句拆，右侧是按作用分的段，秒数、字数、语速由程序算">对标拆稿</button>
         <button aria-pressed="false" data-src="img/lt-meeting.jpg" data-c="会议纪要：项目同步模板，里程碑、风险、关键决定和待办，每条带时间戳">会议纪要</button>
         <button aria-pressed="false" data-src="img/lt-home.jpg" data-c="新建：贴 YouTube、Twitch、B 站或学校录播链接，选模板，也可以拖文件进来">新建</button>
         <button aria-pressed="false" data-src="img/lt-library.jpg" data-c="资料库：所有总结，按来源和状态筛选">资料库</button>
       </div>
-      <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>总结页</span></div><img loading="lazy" decoding="async" src="img/lt-summary.jpg" alt="总结页：四步进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒"></div>
-      <p class="shotcap" data-cap>总结页：四步进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒</p>
+      <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>总结页</span></div><img loading="lazy" decoding="async" src="img/lt-summary.jpg" alt="总结页：每一步的进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒"></div>
+      <p class="shotcap" data-cap>总结页：每一步的进度和用时、带时间戳的总结、右侧章节一点就跳回原视频那一秒</p>
     </div>
     <div class="cols rv">
       <div><h3>原来的问题</h3><p>录播课太长，复习时找不到重点在哪一分钟。直接让 AI 总结，时间戳经常是编的；而且大多数学生只有 ChatGPT 或 Claude 会员，没有 API Key。</p></div>
-      <div><h3>做了什么</h3><p>贴链接后先找现成字幕，没有就在本机转写；交给你已经登录的 Claude Code 或 Codex（也可以用 API）写总结。写完逐条核对时间戳，不对就让 AI 改一轮。点任意时间戳，直接跳回视频那一秒。除了课程总结，还能给短视频逐句拆稿（秒数、字数、语速由程序算，不让 AI 估），或者按 5 种会议模板写纪要。</p></div>
-      <div><h3>我负责</h3><p>全部设计和开发：后端和任务队列、拿字幕和转写的流程、三种 AI 接入、三种总结模板、中英双语界面、新手检查和一键安装脚本。</p></div>
+      <div><h3>做了什么</h3><p>贴链接后先找现成字幕，没有就在本机转写；交给你已经登录的 Claude Code 或 Codex（也可以用 API）写总结。写完逐条核对时间戳，不对就让 AI 改一轮。点任意时间戳，直接跳回视频那一秒。除了课程总结，还能给短视频逐句拆稿（秒数、字数、语速由程序算，不让 AI 估），或者按 5 种会议模板写纪要。写完还会再核对一遍人名和公司名：语音识别常把“黄仁勋”听成“黄云勋”，有把握的直接改并注明原转写，拿不准的列出来让你核对。模板选错了也不用重来：点「换个用途」，用已经拿到的文字稿换个模板再出一份。</p></div>
+      <div><h3>我负责</h3><p>全部设计和开发：后端和任务队列、拿字幕和转写的流程、三种 AI 接入、三种总结模板、中英双语界面、新手环境检测（按所在时区推荐用哪个 AI）和 Mac / Windows 一键安装。</p></div>
     </div>
-    <ul class="proof rv"><li>开源</li><li>有会员就不用 API Key</li><li>YouTube · Twitch · B 站 · 学校录播</li><li>课程总结 · 对标拆稿 · 会议纪要</li><li>中英双语</li><li>25 个测试</li></ul>
+    <ul class="proof rv"><li>开源</li><li>有会员就不用 API Key</li><li>YouTube · Twitch · B 站 · 学校录播</li><li>课程总结 · 对标拆稿 · 会议纪要</li><li>人名专名核对</li><li>中英双语</li><li>29 个测试</li></ul>
     <p class="stack">Python · FastAPI · SQLite · yt-dlp · whisper.cpp · Claude Code / Codex</p>
-    <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">在 GitHub 上看代码</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-mac.zip">下载 Mac 版</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-windows.zip">下载 Windows 版</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/blob/main/README.zh.md">上手说明</a><span class="note">截图里的内容来自公开视频：MIT OpenCourseWare、3Blue1Brown 的课，B 站公开短视频，GitLab 公开的团队周会。会议模板改编自开源项目 Meetily。</span></div>
+    <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">在 GitHub 上看代码</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-mac.zip" data-dl="mac">下载 Mac 版</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-windows.zip" data-dl="win">下载 Windows 版</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/blob/main/README.zh.md">上手说明</a><span class="note">截图里的内容来自公开视频：MIT OpenCourseWare、3Blue1Brown 的课，B 站公开短视频，GitLab 公开的团队周会。会议模板改编自开源项目 Meetily。</span></div>
   </article>
 
   <article class="case" id="jizhang">
@@ -398,6 +415,8 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
   <figure class="qr rv"><img loading="lazy" decoding="async" src="img/wechat.jpg" alt="微信二维码" width="150" height="150"><figcaption>微信扫码，请备注来意</figcaption></figure>
 </div></section>
 
+<dialog id="dl-dlg" class="dl-dlg" aria-label="download"></dialog>
+
 <footer><div class="wrap"><span>Cam Zhou · 2026 年 11 月</span><span>截图中的数据均为演示数据</span></div></footer>
 
 <script>
@@ -424,6 +443,57 @@ if(mc){mc.addEventListener('click',function(){
   var sel=function(){var r=document.createRange();r.selectNodeContents(ma);var g=getSelection();g.removeAllRanges();g.addRange(r);mc.textContent='已选中，按复制键'};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ma.textContent).then(done,sel)}else{sel()}
 })}
+
+// 下载工作台:识别系统和时区,下载照常开始,同时弹窗说明最低要求和推荐的 AI
+(function(){
+  var L={
+ title:"下载已开始",sub:"装之前看一眼：这台电脑需要什么、写总结用哪个 AI。",
+ env:"检测到的环境",os:{mac:"macOS",win:"Windows",mobile:"手机 / 平板",other:"其他系统"},tz:"时区",
+ wrong:function(want,have){return "你下载的是 "+want+" 版，但这台电脑看起来是 "+have+"。如果点错了，换另一个按钮重新下载。"},
+ mobile:"这个工具要在电脑上用。请到 Mac 或 Windows 电脑上打开本页下载。",
+ req:"最低要求",
+ reqMac:["macOS（Apple 芯片或 Intel 都可以）","能联网（第一次要下载工具和约 1.6 GB 的语音模型）","硬盘留出约 3 GB","电脑的开机密码：第一次装 Homebrew 时要你自己输入"],
+ reqWin:["Windows 10 或 11，64 位（自带 winget）","能联网（第一次要下载工具和约 1.6 GB 的语音模型）","硬盘留出约 3 GB","有显卡转写更快，没有也能用 CPU","Windows 版还没在真机上完整测过，遇到问题欢迎反馈"],
+ ai:"写总结的 AI（三选一）",
+ cn:"检测到你在 UTC+8 时区，推荐 DeepSeek：国内直接能用，按量付费，不需要会员。",
+ intl:"推荐直接用你已有的 ChatGPT 或 Claude 会员，不用另外申请 API Key。",
+ ds:'DeepSeek API Key：到 <a href="https://platform.deepseek.com/api_keys" target="_blank" rel="noopener">DeepSeek 开放平台</a>注册、充值、创建 Key，打开工作台后粘贴进去',
+ gpt:"ChatGPT Plus / Pro 会员：工作台会提示你装 Codex，登录一次就能用",
+ claude:"Claude Pro / Max 会员：工作台会提示你装 Claude Code，登录一次就能用",
+ rec:"推荐",
+ steps:"装好只要三步",
+ stepsMac:["解压下载的 zip","双击 <code>启动工作台.command</code>（第一次要按住 Control 点它 → 打开）","它会自动装好缺的工具，然后在浏览器打开工作台；照首页「开始前检查」把 AI 配好就能用"],
+ stepsWin:["解压下载的 zip（右键 → 全部解压缩）","双击 <code>启动工作台.bat</code>（弹出安全提示就点「运行」/「仍要运行」）","它会自动装好缺的工具，然后在浏览器打开工作台；照首页「开始前检查」把 AI 配好就能用"],
+ check:"打开以后，工作台首页会自动检查这台电脑还缺什么，缺的会给出复制就能用的命令。",
+ guide:"完整上手说明",guideUrl:"https://github.com/camzhou831-star/lecture-summary-toolkit/blob/main/README.zh.md",close:"知道了"
+};
+  var dlg=document.getElementById('dl-dlg'); if(!dlg) return;
+  var ua=navigator.userAgent, p=(navigator.userAgentData&&navigator.userAgentData.platform)||navigator.platform||'';
+  var mobile=/Android|iPhone|iPad|iPod|Mobile/i.test(ua)||(/Mac/.test(p)&&navigator.maxTouchPoints>1);
+  var os=mobile?'mobile':/Win/i.test(p+ua)?'win':/Mac/i.test(p+ua)?'mac':'other';
+  var off=-new Date().getTimezoneOffset(), utc8=off===480;
+  var tz='UTC'+(off>=0?'+':'-')+Math.floor(Math.abs(off)/60)+(Math.abs(off)%60?':'+('0'+Math.abs(off)%60).slice(-2):'');
+  try{var zn=Intl.DateTimeFormat().resolvedOptions().timeZone; if(zn) tz+=' · '+zn}catch(e){}
+  if(os==='mac'||os==='win'){var b=document.querySelector('[data-dl="'+os+'"]'); if(b) b.classList.add('rec-os')}
+  function li(a){return a.map(function(x){return '<li>'+x+'</li>'}).join('')}
+  function open(want){
+    var tag=' <span class="rec">'+L.rec+'</span>', ais=utc8?[L.ds+tag,L.gpt,L.claude]:[L.gpt+tag,L.claude+tag,L.ds];
+    var h='<div class="dl-in"><h3>'+L.title+'</h3><p class="dl-sub">'+L.sub+'</p>'
+      +'<h4>'+L.env+'</h4><div class="env"><span>'+L.os[os]+'</span><span>'+L.tz+' '+tz+'</span></div>'
+      +(os==='mobile'?'<p class="warn">'+L.mobile+'</p>':(os==='mac'||os==='win')&&os!==want?'<p class="warn">'+L.wrong(L.os[want],L.os[os])+'</p>':'')
+      +'<h4>'+L.req+'</h4><ul>'+li(want==='mac'?L.reqMac:L.reqWin)+'</ul>'
+      +'<h4>'+L.ai+'</h4><p class="dl-sub" style="margin:0 0 8px">'+(utc8?L.cn:L.intl)+'</p><ol>'+li(ais)+'</ol>'
+      +'<h4>'+L.steps+'</h4><ol>'+li(want==='mac'?L.stepsMac:L.stepsWin)+'</ol><p class="dl-sub" style="margin:10px 0 0">'+L.check+'</p>'
+      +'<div class="dl-foot"><a href="'+L.guideUrl+'" target="_blank" rel="noopener">'+L.guide+' ↗</a><button type="button" class="btn sm" data-close>'+L.close+'</button></div></div>';
+    dlg.innerHTML=h;
+    dlg.querySelector('[data-close]').onclick=function(){dlg.close()};
+    if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+  }
+  dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close()});
+  document.querySelectorAll('[data-dl]').forEach(function(a){
+    a.addEventListener('click',function(){var w=a.getAttribute('data-dl'); setTimeout(function(){open(w)},150)});   // 不拦下载,稍后弹窗
+  });
+})();
 </script>
 
 </html>
