@@ -334,10 +334,10 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
     </div>
     <div class="cols rv">
       <div><h3>原来的问题</h3><p>录播课太长，复习时找不到重点在哪一分钟。直接让 AI 总结，时间戳经常是编的；而且大多数学生只有 ChatGPT 或 Claude 会员，没有 API Key。</p></div>
-      <div><h3>做了什么</h3><p>贴链接后先找现成字幕，没有就在本机转写；交给你已经登录的 Claude Code 或 Codex（也可以用 API）写总结。写完逐条核对时间戳，不对就让 AI 改一轮。点任意时间戳，直接跳回视频那一秒。除了课程总结，还能给短视频逐句拆稿（秒数、字数、语速由程序算，不让 AI 估），或者按 5 种会议模板写纪要。写完还会再核对一遍人名和公司名：语音识别常把“黄仁勋”听成“黄云勋”，有把握的直接改并注明原转写，拿不准的列出来让你核对。模板选错了也不用重来：点「换个用途」，用已经拿到的文字稿换个模板再出一份。</p></div>
+      <div><h3>做了什么</h3><p>贴链接后先找现成字幕，没有就在本机转写；交给你已经登录的 Claude Code 或 Codex（也可以用 API）写总结。写完逐条核对时间戳，不对就让 AI 改一轮。点任意时间戳，直接跳回视频那一秒。除了课程总结，还能给短视频逐句拆稿（秒数、字数、语速由程序算，不让 AI 估），或者按 5 种会议模板写纪要。写完还会再核对一遍人名和公司名：语音识别常把“黄仁勋”听成“黄云勋”，有把握的直接改并注明原转写，拿不准的列出来让你核对。模板选错了也不用重来：点「换个用途」，用已经拿到的文字稿换个模板再出一份。课程总结可以附上课件 PDF；本地视频会读画面文字，Claude 写的时候会直接看截图。写完还有独立审核，每条意见都要引原文，再复核两次：两次都确认才改，拿不准的在原处标「待核实」。讲师说错的地方，比如口误的数字，不会照抄进总结。</p></div>
       <div><h3>我负责</h3><p>全部设计和开发：后端和任务队列、拿字幕和转写的流程、三种 AI 接入、三种总结模板、中英双语界面、新手环境检测（按所在时区推荐用哪个 AI）和 Mac / Windows 一键安装。</p></div>
     </div>
-    <ul class="proof rv"><li>开源</li><li>有会员就不用 API Key</li><li>YouTube · Twitch · B 站 · 学校录播</li><li>课程总结 · 对标拆稿 · 会议纪要</li><li>人名专名核对</li><li>中英双语</li><li>29 个测试</li></ul>
+    <ul class="proof rv"><li>开源</li><li>有会员就不用 API Key</li><li>YouTube · Twitch · B 站 · 学校录播</li><li>课程总结 · 对标拆稿 · 会议纪要</li><li>人名专名核对</li><li>课件 + 截图 + 多轮审核</li><li>中英双语</li><li>36 个测试</li></ul>
     <p class="stack">Python · FastAPI · SQLite · yt-dlp · whisper.cpp · Claude Code / Codex</p>
     <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">在 GitHub 上看代码</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-mac.zip" data-dl="mac">下载 Mac 版</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/releases/latest/download/lecture-workbench-windows.zip" data-dl="win">下载 Windows 版</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit/blob/main/README.zh.md">上手说明</a><span class="note">截图里的内容来自公开视频：MIT OpenCourseWare、3Blue1Brown 的课，B 站公开短视频，GitLab 公开的团队周会。会议模板改编自开源项目 Meetily。</span></div>
   </article>
