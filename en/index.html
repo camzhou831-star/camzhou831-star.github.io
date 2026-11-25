@@ -309,11 +309,13 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
   </article>
 
   <article class="case" id="toolkit">
-    <div class="chead rv"><div><div class="no">03</div><div class="kind">AI workflow · Local web app</div><h2>Lecture Workbench</h2></div><p>Paste a lecture link, get a study summary that jumps back to the exact second.</p></div>
+    <div class="chead rv"><div><div class="no">03</div><div class="kind">AI workflow · Local web app</div><h2>Lecture Workbench</h2></div><p>Paste a link, get a summary that jumps back to the exact second: lecture summaries, script breakdowns and meeting notes.</p></div>
     <div data-gallery class="rv">
       <div class="tabs" role="group" aria-label="Lecture Workbench screenshots">
         <button aria-pressed="true" data-src="../img/lt-summary-en.jpg" data-c="Summary: four-step progress with timings, a timestamped summary, and chapters that jump back into the video">Summary</button>
-        <button aria-pressed="false" data-src="../img/lt-home-en.jpg" data-c="New summary: paste a YouTube, Twitch, Bilibili or lecture-capture link, or drop in a file">New summary</button>
+        <button aria-pressed="false" data-src="../img/lt-breakdown-en.jpg" data-c="Script breakdown: a short video split sentence by sentence; segments by role on the right, with seconds, word counts and pace computed by code">Script breakdown</button>
+        <button aria-pressed="false" data-src="../img/lt-meeting-en.jpg" data-c="Meeting notes: summary, decisions and action items, each tied to a timestamp">Meeting notes</button>
+        <button aria-pressed="false" data-src="../img/lt-home-en.jpg" data-c="New summary: paste a YouTube, Twitch, Bilibili or lecture-capture link, pick a template, or drop in a file">New summary</button>
         <button aria-pressed="false" data-src="../img/lt-library-en.jpg" data-c="Library: every summary, filterable by source and status">Library</button>
       </div>
       <div class="win" style="margin-top:16px"><div class="bar"><i></i><i></i><i></i><span data-t>Summary</span></div><img loading="lazy" decoding="async" src="../img/lt-summary-en.jpg" alt="Summary: four-step progress with timings, a timestamped summary, and chapters that jump back into the video"></div>
@@ -321,12 +323,12 @@ footer .wrap{padding-block:26px;font-size:12.5px;color:var(--dim);border-top:1px
     </div>
     <div class="cols rv">
       <div><h3>The problem</h3><p>Lecture recordings are too long to review, and when you ask an AI to summarise one directly, the timestamps are often made up. Most students also have a ChatGPT or Claude plan rather than an API key.</p></div>
-      <div><h3>What I built</h3><p>Paste a link and it uses the site's subtitles, or transcribes the audio on your own machine. The summary is written by the Claude Code or Codex account you're already signed in to (or any API), then every timestamp is checked and the AI fixes anything off. Click a timestamp and the video jumps to that second.</p></div>
-      <div><h3>My role</h3><p>Designed and built it end to end: the backend and task queue, the subtitle and transcription pipeline, three AI integrations, the bilingual interface, the first-run checklist and a one-command installer.</p></div>
+      <div><h3>What I built</h3><p>Paste a link and it uses the site's subtitles, or transcribes the audio on your own machine. The summary is written by the Claude Code or Codex account you're already signed in to (or any API), then every timestamp is checked and the AI fixes anything off. Click a timestamp and the video jumps to that second. Besides lecture summaries it can break down a short video sentence by sentence (seconds, word counts and pace computed by code, not estimated by the AI) or write meeting notes in five formats.</p></div>
+      <div><h3>My role</h3><p>Designed and built it end to end: the backend and task queue, the subtitle and transcription pipeline, three AI integrations, three summary templates, the bilingual interface, the first-run checklist and a one-command installer.</p></div>
     </div>
-    <ul class="proof rv"><li>Open source</li><li>No API key with a ChatGPT or Claude plan</li><li>YouTube · Twitch · Bilibili · lecture capture</li><li>English and Chinese</li><li>20 tests</li></ul>
+    <ul class="proof rv"><li>Open source</li><li>No API key with a ChatGPT or Claude plan</li><li>YouTube · Twitch · Bilibili · lecture capture</li><li>Lectures · script breakdowns · meetings</li><li>English and Chinese</li><li>25 tests</li></ul>
     <p class="stack">Python · FastAPI · SQLite · yt-dlp · whisper.cpp · Claude Code / Codex</p>
-    <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">View code on GitHub</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit#readme">Getting started</a><span class="note">Summaries in the screenshots come from public lectures (MIT OpenCourseWare, 3Blue1Brown, Hung-yi Lee's ML course).</span></div>
+    <div class="acts"><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit">View code on GitHub</a><a class="btn sm" href="https://github.com/camzhou831-star/lecture-summary-toolkit#readme">Getting started</a><span class="note">Screenshots use public videos: MIT OpenCourseWare and 3Blue1Brown lectures, a public Bilibili short and GitLab's public team meetings. Meeting templates adapted from the open-source Meetily.</span></div>
   </article>
 
   <article class="case" id="jizhang">
