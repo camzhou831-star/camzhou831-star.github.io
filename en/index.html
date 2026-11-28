@@ -94,8 +94,6 @@ h1 span{display:block}
 .ledger tr:has(a:focus-visible){outline:2px solid var(--red);outline-offset:-2px}
 .ledger .st{white-space:nowrap}
 .ledger .st .dot{display:inline-block;margin-right:8px;vertical-align:1px}
-.ledger .fig{text-align:right;white-space:nowrap;padding-right:16px}
-.ledger .fig b{font-size:28px;font-weight:500;color:var(--ink);margin-right:4px}
 
 /* 分区 */
 section.sec{border-top:1px solid var(--rule)}
@@ -104,12 +102,8 @@ section.sec>.wrap{padding-block:96px 32px;display:grid;grid-template-columns:min
 .sechead p{margin-top:12px;color:var(--pencil);max-width:36em}
 
 /* 简介 */
-.about{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:48px;align-items:start}
+.about{display:block}
 .about>p{color:var(--soft);max-width:34em}
-.nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px}
-.nums div{border-top:1px solid var(--rule);padding-top:12px}
-.nums b{display:block;font-size:48px;font-weight:500;line-height:1.1}
-.nums span{font-size:15px;color:var(--pencil)}
 
 /* 作品 */
 .case{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;padding-top:64px;border-top:1px solid var(--rule)}
@@ -190,15 +184,13 @@ footer .wrap{padding-block:24px;font-size:14px;color:var(--pencil);border-top:1p
   .links{display:none} #theme{margin-left:auto}
   header.hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:40px 48px;gap:32px}
   .ledger thead{display:none}
-  .ledger tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:16px 12px 16px 16px}
+  .ledger tbody tr{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 16px;padding:16px 12px 16px 16px}
   .ledger td,.ledger td:first-child{padding:0}
   .ledger tbody tr{box-shadow:inset 3px 0 0 transparent}
   .ledger tr.on{box-shadow:inset 3px 0 0 var(--red)} .ledger tr.on td:first-child{box-shadow:none}
   .ledger .ds{grid-column:1/-1;grid-row:2}
   .ledger .st{grid-column:1/-1;grid-row:3;white-space:normal}
-  .ledger .fig{grid-column:2;grid-row:1;padding:0}
-  .ledger .fig b{font-size:24px}
-  section.sec>.wrap{padding-block:64px 24px;gap:32px}
+      section.sec>.wrap{padding-block:64px 24px;gap:32px}
   .about,.cols,.chead{grid-template-columns:minmax(0,1fr);gap:24px}
   .steps,.frames,.mods{grid-template-columns:repeat(2,minmax(0,1fr))}
   .row{grid-template-columns:minmax(0,1fr)} .row>*{grid-column:1!important;grid-row:auto!important}
@@ -208,8 +200,7 @@ footer .wrap{padding-block:24px;font-size:14px;color:var(--pencil);border-top:1p
 }
 @media (max-width:520px){
   .bar{gap:16px} .bar .btn.sm{padding:6px 10px}
-  .nums b{font-size:40px}
-  .steps,.mods{grid-template-columns:minmax(0,1fr)}
+    .steps,.mods{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
@@ -258,12 +249,12 @@ h1{max-width:18em}
   </figure>
   <table class="ledger">
     <caption class="vh">Main projects. Hover a row to see that project above; select a row to jump to its case study.</caption>
-    <thead><tr><th scope="col">Project</th><th scope="col">What it does</th><th scope="col">Status</th><th scope="col"><span class="vh">Key figure</span></th></tr></thead>
+    <thead><tr><th scope="col">Project</th><th scope="col">What it does</th><th scope="col">Status</th></tr></thead>
     <tbody>
-      <tr class="on" data-src="../img/tf-home-en.jpg" data-cap="Farm Management System: back-office home"><td class="nm"><a href="#turtle">Farm Management System</a></td><td class="ds">Web back office and WeChat Mini Program: approvals, inventory, finance, dashboards</td><td class="st"><span class="dot" aria-hidden="true"></span>Live, used daily by a real farm</td><td class="fig num"><b>51</b>Mini Program pages</td></tr>
-      <tr data-src="../img/vd-1.jpg" data-fit="contain" data-cap="Video Production Pipeline: opening frame of an episode"><td class="nm"><a href="#video">Video Production Pipeline</a></td><td class="ds">4K explainer videos, from topic and voiceover to visuals and data review</td><td class="st"><span class="dot" aria-hidden="true"></span>Used on 3 channels</td><td class="fig num">about <b>20</b>videos</td></tr>
-      <tr data-src="../img/lt-summary-en.jpg" data-cap="Lecture Workbench: a timestamped summary"><td class="nm"><a href="#toolkit">Lecture Workbench</a></td><td class="ds">Paste a link, get a summary that jumps back to the exact second</td><td class="st">Open source, Mac and Windows</td><td class="fig num"><b>64</b>tests</td></tr>
-      <tr data-src="../img/jz-dashboard-en.jpg" data-cap="Jizhang Bookkeeping: dashboard"><td class="nm"><a href="#jizhang">Jizhang Bookkeeping</a></td><td class="ds">Offline bookkeeping software for small businesses</td><td class="st">Open source, Windows installer</td><td class="fig num"><b>66</b>preset accounts</td></tr>
+      <tr class="on" data-src="../img/tf-home-en.jpg" data-cap="Farm Management System: back-office home"><td class="nm"><a href="#turtle">Farm Management System</a></td><td class="ds">Web back office and WeChat Mini Program: approvals, inventory, finance, dashboards</td><td class="st"><span class="dot" aria-hidden="true"></span>Live, used daily by a real farm</td></tr>
+      <tr data-src="../img/vd-1.jpg" data-fit="contain" data-cap="Video Production Pipeline: opening frame of an episode"><td class="nm"><a href="#video">Video Production Pipeline</a></td><td class="ds">4K explainer videos, from topic and voiceover to visuals and data review</td><td class="st"><span class="dot" aria-hidden="true"></span>Used on 3 channels</td></tr>
+      <tr data-src="../img/lt-summary-en.jpg" data-cap="Lecture Workbench: a timestamped summary"><td class="nm"><a href="#toolkit">Lecture Workbench</a></td><td class="ds">Paste a link, get a summary that jumps back to the exact second</td><td class="st">Open source, Mac and Windows</td></tr>
+      <tr data-src="../img/jz-dashboard-en.jpg" data-cap="Jizhang Bookkeeping: dashboard"><td class="nm"><a href="#jizhang">Jizhang Bookkeeping</a></td><td class="ds">Offline bookkeeping software for small businesses</td><td class="st">Open source, Windows installer</td></tr>
     </tbody>
   </table>
 </div></header>
@@ -272,12 +263,6 @@ h1{max-width:18em}
   <div class="sechead"><h2>Profile</h2></div>
   <div class="about">
     <p>I develop and run a live management system for a farm business, covering approvals, inventory and finance in one place. I have also built desktop software, command-line tools and explainer videos. Master of IT student at UWA (QS #77). Native Chinese speaker, working in English, available remotely.</p>
-    <div class="nums">
-      <div><b class="num">51</b><span>Mini Program pages, live in production</span></div>
-      <div><b class="num">7</b><span>business dashboards, plus a big-screen view</span></div>
-      <div><b class="num">20</b><span>or so 4K explainer videos produced</span></div>
-      <div><b class="num">3</b><span>video channels on one production pipeline</span></div>
-    </div>
   </div>
 </div></section>
 

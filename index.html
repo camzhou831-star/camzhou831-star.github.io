@@ -94,8 +94,6 @@ h1 span{display:block}
 .ledger tr:has(a:focus-visible){outline:2px solid var(--red);outline-offset:-2px}
 .ledger .st{white-space:nowrap}
 .ledger .st .dot{display:inline-block;margin-right:8px;vertical-align:1px}
-.ledger .fig{text-align:right;white-space:nowrap;padding-right:16px}
-.ledger .fig b{font-size:28px;font-weight:500;color:var(--ink);margin-right:4px}
 
 /* 分区 */
 section.sec{border-top:1px solid var(--rule)}
@@ -104,12 +102,8 @@ section.sec>.wrap{padding-block:96px 32px;display:grid;grid-template-columns:min
 .sechead p{margin-top:12px;color:var(--pencil);max-width:36em}
 
 /* 简介 */
-.about{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:48px;align-items:start}
+.about{display:block}
 .about>p{color:var(--soft);max-width:34em}
-.nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px}
-.nums div{border-top:1px solid var(--rule);padding-top:12px}
-.nums b{display:block;font-size:48px;font-weight:500;line-height:1.1}
-.nums span{font-size:15px;color:var(--pencil)}
 
 /* 作品 */
 .case{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;padding-top:64px;border-top:1px solid var(--rule)}
@@ -190,15 +184,13 @@ footer .wrap{padding-block:24px;font-size:14px;color:var(--pencil);border-top:1p
   .links{display:none} #theme{margin-left:auto}
   header.hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:40px 48px;gap:32px}
   .ledger thead{display:none}
-  .ledger tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:16px 12px 16px 16px}
+  .ledger tbody tr{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 16px;padding:16px 12px 16px 16px}
   .ledger td,.ledger td:first-child{padding:0}
   .ledger tbody tr{box-shadow:inset 3px 0 0 transparent}
   .ledger tr.on{box-shadow:inset 3px 0 0 var(--red)} .ledger tr.on td:first-child{box-shadow:none}
   .ledger .ds{grid-column:1/-1;grid-row:2}
   .ledger .st{grid-column:1/-1;grid-row:3;white-space:normal}
-  .ledger .fig{grid-column:2;grid-row:1;padding:0}
-  .ledger .fig b{font-size:24px}
-  section.sec>.wrap{padding-block:64px 24px;gap:32px}
+      section.sec>.wrap{padding-block:64px 24px;gap:32px}
   .about,.cols,.chead{grid-template-columns:minmax(0,1fr);gap:24px}
   .steps,.frames,.mods{grid-template-columns:repeat(2,minmax(0,1fr))}
   .row{grid-template-columns:minmax(0,1fr)} .row>*{grid-column:1!important;grid-row:auto!important}
@@ -208,8 +200,7 @@ footer .wrap{padding-block:24px;font-size:14px;color:var(--pencil);border-top:1p
 }
 @media (max-width:520px){
   .bar{gap:16px} .bar .btn.sm{padding:6px 10px}
-  .nums b{font-size:40px}
-  .steps,.mods{grid-template-columns:minmax(0,1fr)}
+    .steps,.mods{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
@@ -254,12 +245,12 @@ footer .wrap{padding-block:24px;font-size:14px;color:var(--pencil);border-top:1p
   </figure>
   <table class="ledger">
     <caption class="vh">主要作品。鼠标停在一行上，上方换成这个作品的截图；点一行跳到详细介绍。</caption>
-    <thead><tr><th scope="col">作品</th><th scope="col">做什么</th><th scope="col">现在</th><th scope="col"><span class="vh">关键数字</span></th></tr></thead>
+    <thead><tr><th scope="col">作品</th><th scope="col">做什么</th><th scope="col">现在</th></tr></thead>
     <tbody>
-      <tr class="on" data-src="img/tf-home.jpg" data-phone="1" data-cap="龟场管理系统：网页后台首页和小程序首页"><td class="nm"><a href="#turtle">龟场管理系统</a></td><td class="ds">网页后台和微信小程序：OA 审批、进销存、财务核算、经营看板</td><td class="st"><span class="dot" aria-hidden="true"></span>已上线，养殖场每天在用</td><td class="fig num"><b>51</b>页小程序</td></tr>
-      <tr data-src="img/vd-1.jpg" data-fit="contain" data-cap="视频出片流程：一期成片的开头画面"><td class="nm"><a href="#video">视频出片流程</a></td><td class="ds">4K 讲解视频，从选题、配音、画面到数据复盘</td><td class="st"><span class="dot" aria-hidden="true"></span>3 个账号在用</td><td class="fig num">约 <b>20</b>条成片</td></tr>
-      <tr data-src="img/lt-summary.jpg" data-cap="课程总结工作台：带时间戳的总结页"><td class="nm"><a href="#toolkit">课程总结工作台</a></td><td class="ds">贴一个链接，出一份能点回原片的总结</td><td class="st">开源，Mac 和 Windows</td><td class="fig num"><b>64</b>个测试</td></tr>
-      <tr data-src="img/jz-dashboard.jpg" data-cap="简账：工作台"><td class="nm"><a href="#jizhang">简账</a></td><td class="ds">给小企业用的离线记账软件</td><td class="st">开源，Windows 安装包</td><td class="fig num"><b>66</b>个会计科目</td></tr>
+      <tr class="on" data-src="img/tf-home.jpg" data-phone="1" data-cap="龟场管理系统：网页后台首页和小程序首页"><td class="nm"><a href="#turtle">龟场管理系统</a></td><td class="ds">网页后台和微信小程序：OA 审批、进销存、财务核算、经营看板</td><td class="st"><span class="dot" aria-hidden="true"></span>已上线，养殖场每天在用</td></tr>
+      <tr data-src="img/vd-1.jpg" data-fit="contain" data-cap="视频出片流程：一期成片的开头画面"><td class="nm"><a href="#video">视频出片流程</a></td><td class="ds">4K 讲解视频，从选题、配音、画面到数据复盘</td><td class="st"><span class="dot" aria-hidden="true"></span>3 个账号在用</td></tr>
+      <tr data-src="img/lt-summary.jpg" data-cap="课程总结工作台：带时间戳的总结页"><td class="nm"><a href="#toolkit">课程总结工作台</a></td><td class="ds">贴一个链接，出一份能点回原片的总结</td><td class="st">开源，Mac 和 Windows</td></tr>
+      <tr data-src="img/jz-dashboard.jpg" data-cap="简账：工作台"><td class="nm"><a href="#jizhang">简账</a></td><td class="ds">给小企业用的离线记账软件</td><td class="st">开源，Windows 安装包</td></tr>
     </tbody>
   </table>
 </div></header>
@@ -268,12 +259,6 @@ footer .wrap{padding-block:24px;font-size:14px;color:var(--pencil);border-top:1p
   <div class="sechead"><h2>简介</h2></div>
   <div class="about">
     <p>独立开发并运维着一套真实在用的行业管理系统，覆盖 OA 审批、进销存和财务核算；也从零做过桌面软件、命令行工具和讲解视频。西澳大学（QS 世界第 77）信息技术硕士在读，远程合作。</p>
-    <div class="nums">
-      <div><b class="num">51</b><span>页微信小程序，已上线</span></div>
-      <div><b class="num">7</b><span>个经营看板，加一块数据大屏</span></div>
-      <div><b class="num">20</b><span>条左右 4K 讲解视频成片</span></div>
-      <div><b class="num">3</b><span>个短视频账号，用同一套出片流程</span></div>
-    </div>
   </div>
 </div></section>
 
